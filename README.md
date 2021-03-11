@@ -1,24 +1,4 @@
-# README
+This company was started by 'Junuthula Satya Sri Virinchi' on 11/03/2021.
+He is the founder and the CEO of this company named 'Answers and Questions'.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This company tries to automate the process of generating multiple sets of question papers. It's main focus is to help create multiple sets of maths assignments or question papers easily.

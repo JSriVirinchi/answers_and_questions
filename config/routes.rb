@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-	root 'general#landing_page'
+  devise_for :users
+  root 'general#landing_page'
 end

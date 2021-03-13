@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'general#landing_page'
+  # home pages
+  root 'home#dashboard_page'
+
+  # General pages
+  get 'general/landing_page', to: 'general#landing_page', as: 'general_landing_page'
 end

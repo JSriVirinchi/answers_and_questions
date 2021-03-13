@@ -17,12 +17,6 @@ class HomeController < ApplicationController
 	end
 
 	########## Functions ###########
-	def new_question_paper
-		# This opens up a template form for creating new question paper.
-		respond_to do |format|
-    		format.js
-	  	end  
-	end
 
 	def create_question_paper
 		# This posts the question paper into the table

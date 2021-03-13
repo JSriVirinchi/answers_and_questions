@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get 'home/question_paper_page', to: 'home#question_paper_page', as: 'home_question_paper_page'
 
   # home functions
-  get 'home/new_question_paper', to: 'home#new_question_paper', as: 'home_new_question_paper'
   post 'home/create_question_paper', to: 'home#create_question_paper', as: 'home_create_question_paper'
 
   # General pages

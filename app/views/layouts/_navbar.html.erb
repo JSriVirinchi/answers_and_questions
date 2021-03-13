@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    
+    <%= link_to root_path, class: 'navbar-brand' do %>
+      <%= image_tag('brand_logo.png', size: "25", class: "d-inline-block align-top")%>
+      A&Q
+    <%end%> 
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+         <%= link_to 'Dashboard', root_path, class: 'nav-link active'%>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Question Papers', root_path, class: 'nav-link'%>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Assignments', root_path, class: 'nav-link'%>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><%= link_to "Profile", root_path, class: 'dropdown-item' %></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><%= link_to "Landing page", general_landing_page_path, class: 'dropdown-item' %></li>
+            <li><%= link_to "Settings", root_path, class: 'dropdown-item' %></li>
+          </ul>
+        </li>
+      </ul>
+
+      <span class="form-inline my-2 my-lg-0">
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete%>
+      </span>
+
+    </div>    
+  </div>
+</nav>
+
+
+
+

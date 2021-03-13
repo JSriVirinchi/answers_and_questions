@@ -1,0 +1,15 @@
+<%= render 'layouts/navbar'%>
+
+<script type="text/javascript">
+	document.getElementById('dashboard_navbar').classList.remove('active');
+	document.getElementById('question_papers_navbar').classList.add('active');	
+</script>
+
+<h1>question paper page</h1>
+
+<%= link_to 'Create Question Paper', home_new_question_paper_path, remote: true %>
+
+<%= form_with scope: :create_question_paper, url: home_create_question_paper_path, method: :post, remote: true do |f|%>
+	<%= f.text_field :name %>
+	<%= f.submit 'Create'%>
+<%end%>

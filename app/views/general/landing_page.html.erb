@@ -1,3 +1,13 @@
+<%if @logged_in == true %>
+	<%= render 'layouts/navbar'%>
+
+	<script type="text/javascript">
+		document.getElementById('dashboard_navbar').classList.remove('active');
+		document.getElementById('question_papers_navbar').classList.remove('active');	
+	</script>
+
+<%end%>
+
 <h1>Landing page of Answers and Questions</h1>
 
 <%if @logged_in == false%>

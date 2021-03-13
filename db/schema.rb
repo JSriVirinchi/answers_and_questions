@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_12_071857) do
+ActiveRecord::Schema.define(version: 2021_03_13_103622) do
+
+  create_table "questionpapers", force: :cascade do |t|
+    t.string "name"
+    t.integer "number_of_questions"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

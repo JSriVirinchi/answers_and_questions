@@ -10,6 +10,5 @@ class GeneralController < ApplicationController
 		else
 			@logged_in = false
 		end
-
 	end
 end

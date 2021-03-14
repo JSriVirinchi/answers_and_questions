@@ -17,15 +17,23 @@
         </div>
         <div class="modal-body">
 
-          
-      			<%= f.text_field :name %>
-      			
-      		
+          <div class="row">
+            <div class="col-3">
+              <span style="color: red"> * </span>Name:
+            </div>
+            <div class="col-9">
+              <%= f.text_field :name, class: 'form-control' %>
+            </div>              
+          </div>  
+
+          <div id="create_question_paper_error_messages" >
+            <%= render 'home/question_paper/error_messages_for_modal_in_creating_question_papers'%>
+          </div>
 
         </div>
         <div class="modal-footer">
           <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-          
+
           <%= f.submit 'Create', class: 'btn btn-primary'%>
         </div>
       </div>

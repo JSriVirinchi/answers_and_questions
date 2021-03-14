@@ -20,10 +20,14 @@ class HomeController < ApplicationController
 
 	def create_question_paper
 		# This posts the question paper into the table
-		@questionpaper = Questionpaper.create(params.require(:create_question_paper).permit(:name))
-		respond_to do |format|
-    		format.js
-	  	end 
+		@questionpaper = Questionpaper.new(params.require(:create_question_paper).permit(:name).merge(user_id: current_user.id))
+		if @questionpaper.save
+			redirect_to root_path
+		else
+			respond_to do |format|
+			    format.js
+		  	end
+		end			
 	end
 
 end

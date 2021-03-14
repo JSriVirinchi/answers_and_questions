@@ -5,44 +5,10 @@
 	document.getElementById('question_papers_navbar').classList.remove('active');	
 </script>
 
-<% edit_name_before = "edit_name_before_" + @questionpaper.id.to_s %>
-<% edit_name_after = "edit_name_after_" + @questionpaper.id.to_s %>
-<% edit_name_icon = "edit_name_icon_" + @questionpaper.id.to_s %>
-<% number_of_questions_badge = "number_of_questions_badge_" + @questionpaper.id.to_s %>
+<% question_paper_edit_page_left_pane = 'question_paper_edit_page_left_pane_' + @questionpaper.id.to_s%>
 
-<div class="left_pane">
-
-    <div class="list-group left_pane_questions">
-      <li class="list-group-item bg-dark text-white">
-        <div class="row">
-          <div class="col-8" id= <%= edit_name_before %> >
-            <%=truncate(@questionpaper.name, length: 15) %>
-          </div>
-          <div class="col-12 hide" id= <%= edit_name_after%> >
-            <%= form_with scope: :edit_name_question_paper_submit, url: home_edit_name_question_paper_submit_path(@questionpaper.id), method: :put, remote: true do |f|%>
-              <%= f.text_field :name, class: 'form-control', value: @questionpaper.name %>
-            <%end%>
-          </div>
-          <div class="col-2">
-            <%= link_to '<i class="bi bi-pen"></i>'.html_safe, home_edit_name_question_paper_path(@questionpaper.id), class: 'text-white', id: edit_name_icon , remote: true %>
-          </div>          
-          <span class="badge bg-primary rounded-pill" style="float: right;" id= <%= number_of_questions_badge %>>
-            14
-          </span>
-        </div>      
-
-      </li>
-
-      <a class="list-group-item list-group-item-action active" >Home</a>
-      <a class="list-group-item list-group-item-action">Profile</a>
-      <a class="list-group-item list-group-item-action" >Messages</a>
-      <a class="list-group-item list-group-item-action" >Settings</a>
-
-      <li class="list-group-item list-group-item-warning mb-5">Add a new question</li>
-    </div>
-
-    <div>
-    	<button type="button" class="btn btn-success left_pane_submit_button">Generate question paper</button>
-    </div>
-
+<div id= <%= question_paper_edit_page_left_pane %> >
+  <%= render 'home/question_paper/question_paper_edit_page_left_pane'%>
 </div>
+
+

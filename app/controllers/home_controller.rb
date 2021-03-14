@@ -45,6 +45,7 @@ class HomeController < ApplicationController
 	end
 
 	def edit_name_question_paper
+		# For changing the name into a editable form 
 		@questionpaper = Questionpaper.find(params[:questionpaper_id])
 		respond_to do |format|
 		    format.js
@@ -52,9 +53,22 @@ class HomeController < ApplicationController
 	end
 
 	def edit_name_question_paper_submit
+		# To submit the name and changing the form to text 
 		@questionpaper = Questionpaper.find(params[:questionpaper_id])
 		@questionpaper.update(params.require(:edit_name_question_paper_submit).permit(:name))
 		
+		respond_to do |format|
+		    format.js
+	  	end
+	end
+
+	def create_question
+		# To create a question
+		@questionpaper = Questionpaper.find(params[:questionpaper_id])
+		question_number = Question.where(questionpaper_id: @questionpaper.id).count + 1
+		default_marks = 2
+		@question = Question.create(questionpaper_id: @questionpaper.id, question_number: question_number, marks: default_marks)
+
 		respond_to do |format|
 		    format.js
 	  	end

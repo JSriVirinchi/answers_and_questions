@@ -11,8 +11,12 @@ Rails.application.routes.draw do
 
   # Functions
   # home functions
+  # questionpaper
   post 'home/create_question_paper', to: 'home#create_question_paper', as: 'home_create_question_paper'
   delete 'home/delete_question_paper/:questionpaper_id', to: 'home#delete_question_paper', as: 'home_delete_question_paper'
   get 'home/edit_name_question_paper/:questionpaper_id', to: 'home#edit_name_question_paper', as: 'home_edit_name_question_paper'
   put 'home/edit_name_question_paper_submit/:questionpaper_id', to: 'home#edit_name_question_paper_submit', as: 'home_edit_name_question_paper_submit'
+
+  # question
+  post 'home/create_question/:questionpaper_id', to: 'home#create_question', as: 'home_create_question'
 end

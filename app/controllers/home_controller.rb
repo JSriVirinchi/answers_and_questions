@@ -44,4 +44,20 @@ class HomeController < ApplicationController
 	  	end
 	end
 
+	def edit_name_question_paper
+		@questionpaper = Questionpaper.find(params[:questionpaper_id])
+		respond_to do |format|
+		    format.js
+	  	end
+	end
+
+	def edit_name_question_paper_submit
+		@questionpaper = Questionpaper.find(params[:questionpaper_id])
+		@questionpaper.update(params.require(:edit_name_question_paper_submit).permit(:name))
+		
+		respond_to do |format|
+		    format.js
+	  	end
+	end
+
 end

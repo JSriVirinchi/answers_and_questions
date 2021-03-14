@@ -1,0 +1,9 @@
+<% edit_name_before = "edit_name_before_" + @questionpaper.id.to_s %>
+<% edit_name_after = "edit_name_after_" + @questionpaper.id.to_s %>
+<% edit_name_icon = "edit_name_icon_" + @questionpaper.id.to_s %>
+<% number_of_questions_badge = "number_of_questions_badge_" + @questionpaper.id.to_s %>
+
+document.getElementById('<%= edit_name_before %>').classList.remove('hide');
+document.getElementById('<%= edit_name_after %>').classList.add('hide');
+document.getElementById('<%= edit_name_icon %>').classList.remove('hide');
+document.getElementById('<%= number_of_questions_badge %>').classList.remove('hide');

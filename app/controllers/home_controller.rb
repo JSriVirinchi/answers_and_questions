@@ -16,18 +16,32 @@ class HomeController < ApplicationController
 
 	end
 
+	def question_paper_edit_page
+		# Page for editing question papers
+		@questionpaper = Questionpaper.find(params[:questionpaper_id])
+	end
+
 	########## Functions ###########
 
 	def create_question_paper
 		# This posts the question paper into the table
 		@questionpaper = Questionpaper.new(params.require(:create_question_paper).permit(:name).merge(user_id: current_user.id))
 		if @questionpaper.save
-			redirect_to root_path
+			redirect_to home_question_paper_edit_page_path(@questionpaper.id)
 		else
 			respond_to do |format|
 			    format.js
 		  	end
 		end			
+	end
+
+	def delete_question_paper
+		# One can delete question papers
+		@questionpaper = Questionpaper.find(params[:questionpaper_id])
+		@questionpaper.destroy
+		respond_to do |format|
+		    format.js
+	  	end
 	end
 
 end

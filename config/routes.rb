@@ -19,4 +19,5 @@ Rails.application.routes.draw do
 
   # question
   post 'home/create_question/:questionpaper_id', to: 'home#create_question', as: 'home_create_question'
+  delete 'home/delete_question/:question_id', to: 'home#delete_question', as: 'home_delete_question'
 end

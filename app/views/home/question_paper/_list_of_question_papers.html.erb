@@ -19,7 +19,7 @@
         <td><%= truncate(i.name, length: 25) %></td>
         <td></td>
         <td><%= i.number_of_questions %></td>
-        <td></td>
+        <td><%= i.total_marks %></td>
         <td><%= i.created_at.to_date.to_formatted_s(:rfc822) %></td>
         <td> 
           <%= link_to '<i class="bi bi-pencil ml-3"></i>'.html_safe, home_question_paper_edit_page_path(i.id) %>

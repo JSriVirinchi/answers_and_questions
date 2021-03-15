@@ -1,20 +1,14 @@
 <% edit_name_before = "edit_name_before_" + @questionpaper.id.to_s %>
 <% edit_name_after = "edit_name_after_" + @questionpaper.id.to_s %>
 <% edit_name_icon = "edit_name_icon_" + @questionpaper.id.to_s %>
-<% number_of_questions_badge = "number_of_questions_badge_" + @questionpaper.id.to_s %>
-
-<% total_marks = 0 %>
-<% for i in Question.where(questionpaper_id: @questionpaper.id)%>
-  <% total_marks = total_marks + i.marks %>
-<%end%>
 
 <div class="left_pane">
 
     <div class="list-group left_pane_questions">
-      <li class="list-group-item bg-dark text-white">
+      <li class="list-group-item bg-dark text-white p-2">
         <div class="row">
-          <div class="col-8" id= <%= edit_name_before %> >
-            <%=truncate(@questionpaper.name, length: 15) %>
+          <div class="col-10" id= <%= edit_name_before %> >
+            <%=truncate(@questionpaper.name, length: 27) %>
           </div>
           <div class="col-12 hide" id= <%= edit_name_after%> >
             <%= form_with scope: :edit_name_question_paper_submit, url: home_edit_name_question_paper_submit_path(@questionpaper.id), method: :put, remote: true do |f|%>
@@ -23,12 +17,21 @@
           </div>
           <div class="col-2">
             <%= link_to '<i class="bi bi-pen"></i>'.html_safe, home_edit_name_question_paper_path(@questionpaper.id), class: 'text-white', id: edit_name_icon , remote: true %>
-          </div>          
-          <span class="badge bg-primary rounded-pill" style="float: right;" id= <%= number_of_questions_badge %>>
-            <%= total_marks %>
-          </span>
+          </div>
         </div>      
+      </li>
 
+      <li class="list-group-item  bg-dark text-white p-2">
+        <div class="row">
+          <div class="col-10">
+            <span class="badge bg-primary rounded-pill" style="float: left;">
+              <%= @questionpaper.total_marks %> marks
+            </span>
+          </div>
+          <div class="col-2">
+            <i class="bi bi-gear"></i>
+          </div>
+        </div>      
       </li>
 
       <!-- question list -->
@@ -43,7 +46,7 @@
               <%= link_to i.question_number, root_path, id: question_div_link_original %>
             </div>
             <div class="col-2">
-              <%= link_to '<i class="bi bi-trash "></i>'.html_safe, home_delete_question_path(i.id), method: :delete, remote: true, data: { confirm: "Are you sure that you want to delete this question? "} %>
+              <%= link_to '<i class="bi bi-trash "></i>'.html_safe, home_delete_question_path(i.id), method: :delete, remote: true, data: { confirm: "Are you sure that you want to delete question #{i.question_number}? "} %>
             </div>
           </div>        
         </div>

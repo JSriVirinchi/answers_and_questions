@@ -129,4 +129,14 @@ class HomeController < ApplicationController
 		    format.js
 	  	end
 	end
+
+	def question_question_right_pane
+		# This changes the right pane view based on the question selected
+		@question = Question.find(params[:question_id])
+		@questionpaper = Questionpaper.find(@question.questionpaper_id)
+
+		respond_to do |format|
+		    format.js
+	  	end
+	end
 end

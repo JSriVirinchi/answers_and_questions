@@ -28,8 +28,29 @@
 	top: 0px;
 	bottom: 40px;
 	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 .hover_pointer{
 	cursor: pointer;
+}
+
+.question_number_link{
+	color: black;	
+}
+
+
+.question_number_link:hover{
+	color: black;
+	text-decoration: none;	
+}
+
+.right_pane{
+	float: right;
+	border: 1px black solid;
+	top: 56px;
+	left: 20%;
+	bottom: 0px;
+	position: absolute;
+    width: 80%;
 }

@@ -6,9 +6,18 @@
 </script>
 
 <% question_paper_edit_page_left_pane = 'question_paper_edit_page_left_pane_' + @questionpaper.id.to_s%>
+<% question_paper_edit_page_right_pane = 'question_paper_edit_page_right_pane_' + @questionpaper.id.to_s%>
+
+<% if Question.where(questionpaper_id: @questionpaper.id).first%>
+	<% @question_id = Question.where(questionpaper_id: @questionpaper.id).first.id %>
+<%else%>
+	<% @question_id = 0%>
+<%end%>
 
 <div id= <%= question_paper_edit_page_left_pane %> >
   <%= render 'home/question_paper/question_paper_edit_page_left_pane'%>
 </div>
 
-
+<div id= <%= question_paper_edit_page_right_pane%>>
+	<%= render 'home/question_paper/question_paper_edit_page_right_pane', question_id: @question_id %>
+</div>

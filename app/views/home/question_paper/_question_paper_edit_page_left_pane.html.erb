@@ -36,11 +36,15 @@
 
       <!-- question list -->
 
+      <% question_count = 0 %>
       <% for i in Question.where(questionpaper_id: @questionpaper.id)%>
+        <% question_count = question_count + 1 %>
+        
         <% question_div_link = "question_div_link_" + i.id.to_s%>
         <% question_div_link_original = "question_div_link_original_" + i.id.to_s%>
+        <% entire_question_div = "entire_question_div_" + i.id.to_s%>
         
-        <div class="list-group-item list-group-item-action p-0">
+        <div class="list-group-item list-group-item-action p-0" id= <%= entire_question_div %>>
           <div class="row">
             <div class="col-10 hover_pointer p-3" id= <%= question_div_link%>>
               <%= link_to i.question_number, home_question_question_right_pane_path(i.id), id: question_div_link_original, class: 'question_number_link pl-3', remote: true %>
@@ -55,6 +59,9 @@
           document.getElementById('<%= question_div_link %>').onclick = function() {
             document.getElementById('<%= question_div_link_original %>').click();
           }
+          <%if question_count == 1 %>
+            document.getElementById('<%= entire_question_div %>').classList.add('question_highlight');
+          <%end%>
         </script>
       <%end%>
 

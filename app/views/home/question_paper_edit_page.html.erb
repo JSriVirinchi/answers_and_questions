@@ -21,3 +21,7 @@
 <div id= <%= question_paper_edit_page_right_pane%>>
 	<%= render 'home/question_paper/question_paper_edit_page_right_pane', question_id: @question_id %>
 </div>
+
+<script type="text/javascript">
+	sessionStorage.setItem("active_question_id", "<%= @question_id%>");
+</script>

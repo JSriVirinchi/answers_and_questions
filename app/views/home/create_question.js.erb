@@ -1,3 +1,13 @@
 <% question_paper_edit_page_left_pane = 'question_paper_edit_page_left_pane_' + @questionpaper.id.to_s%>
 
 document.getElementById('<%= question_paper_edit_page_left_pane %>').innerHTML = "<%= j render 'home/question_paper/question_paper_edit_page_left_pane'%>";
+
+<% for i in Question.where(questionpaper_id: @questionpaper.id)%>
+    <% question_div_link = "question_div_link_" + i.id.to_s%>
+    <% question_div_link_original = "question_div_link_original_" + i.id.to_s%>
+
+	document.getElementById('<%= question_div_link %>').onclick = function() {
+		document.getElementById('<%= question_div_link_original %>').click();
+	}
+
+<% end %>	

@@ -40,12 +40,12 @@
         <% question_div_link = "question_div_link_" + i.id.to_s%>
         <% question_div_link_original = "question_div_link_original_" + i.id.to_s%>
         
-        <div class="list-group-item list-group-item-action">
+        <div class="list-group-item list-group-item-action p-0">
           <div class="row">
-            <div class="col-10 hover_pointer" id= <%= question_div_link%>>
-              <%= link_to i.question_number, home_question_question_right_pane_path(i.id), id: question_div_link_original, class: 'question_number_link', remote: true %>
+            <div class="col-10 hover_pointer p-3" id= <%= question_div_link%>>
+              <%= link_to i.question_number, home_question_question_right_pane_path(i.id), id: question_div_link_original, class: 'question_number_link pl-3', remote: true %>
             </div>
-            <div class="col-2">
+            <div class="col-1 pt-3 pb-3 pl-0 pr-0">
               <%= link_to '<i class="bi bi-trash "></i>'.html_safe, home_delete_question_path(i.id), method: :delete, remote: true, data: { confirm: "Are you sure that you want to delete question #{i.question_number}? "} %>
             </div>
           </div>        

@@ -1,0 +1,7 @@
+<% marks_modal_close_id = "marks_modal_close_id_" + @question.id.to_s%>
+document.getElementById('<%= marks_modal_close_id%>').click();
+
+// Refresh left pane
+<% question_paper_edit_page_left_pane = 'question_paper_edit_page_left_pane_' + @questionpaper.id.to_s%>
+
+document.getElementById('<%= question_paper_edit_page_left_pane %>').innerHTML = "<%= j render 'home/question_paper/question_paper_edit_page_left_pane'%>";

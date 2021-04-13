@@ -73,3 +73,15 @@
 .box_divider{
 	border: 1px black solid;
 }
+
+.hover_show{
+	display: none;
+}
+
+.for_hover_delete_icon:hover .hover_show{
+	display: inline-block;
+}
+
+.list-group-item:hover{
+	z-index: 1060;
+}

@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   post 'home/create_question/:questionpaper_id', to: 'home#create_question', as: 'home_create_question'
   delete 'home/delete_question/:question_id', to: 'home#delete_question', as: 'home_delete_question'
   get 'home/question/right_pane/:question_id', to:'home#question_question_right_pane', as: 'home_question_question_right_pane'
+  post 'home/question/change_marks_for_question/:question_id', to: 'home#change_marks_for_question', as: 'home_change_marks_for_question'
 end

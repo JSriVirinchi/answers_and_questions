@@ -139,4 +139,26 @@ class HomeController < ApplicationController
 		    format.js
 	  	end
 	end
+
+	def change_marks_for_question
+		# This changes the marks for the individual question.
+		# And accordingly the total marks also change
+
+		@question = Question.find(params[:question_id])
+		@question.update(params.require(:change_marks_for_question).permit(:marks))
+		
+		# fixing the total marks		
+		@questionpaper = Questionpaper.find(@question.questionpaper_id)
+
+		total_marks = 0 
+		for i in Question.where(questionpaper_id: @questionpaper.id)
+			total_marks = total_marks + i.marks 
+		end
+
+		@questionpaper.update(total_marks: total_marks)
+
+		respond_to do |format|
+		    format.js
+	  	end
+	end
 end

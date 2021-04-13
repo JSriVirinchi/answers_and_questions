@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise', '~> 4.2'
 gem 'devise-bootstrap-views', '~> 1.1'
 gem 'hirb', '~> 0.7.3'
+gem 'will_paginate', '~> 3.3'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

@@ -12,10 +12,10 @@
   </thead>
   <tbody>
     <% count = 0%>
-    <% for i in Questionpaper.where(user_id: current_user.id)%>
-      <% count = count + 1%>
+    <% for i in @paginated_questions%>
+      <% count = (count + 1)%>
       <tr>
-        <th scope="row"><%= count%></th>
+        <th scope="row"><%= count + 5*(params[:page].to_i - 1) %></th>
         <td><%= truncate(i.name, length: 25) %></td>
         <td></td>
         <td><%= i.number_of_questions %></td>
@@ -31,3 +31,9 @@
     <%end%>
   </tbody>
 </table>
+
+<div class="footer">
+  <div class="digg_pagination">
+    <%= will_paginate @paginated_questions %>
+  </div>
+</div>

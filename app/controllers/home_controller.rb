@@ -13,6 +13,7 @@ class HomeController < ApplicationController
 		# This is question paper page. The list of question papers can be seen here.
 		# One can create, edit, view, delete papers here.
 		# It is available for teacher role.
+		@paginated_questions = Questionpaper.where(user_id: current_user.id).paginate(page: params[:page], per_page: 5)
 
 	end
 

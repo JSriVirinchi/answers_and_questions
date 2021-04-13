@@ -167,4 +167,10 @@ class HomeController < ApplicationController
 		@question = Question.find(params[:question_id])
 		@question.update(params.require(:enter_the_question).permit(:question))
 	end
+
+	def enter_the_solution
+		# User can enter the solution in a text area and it stores in database
+		@question = Question.find(params[:question_id])
+		@question.update(params.require(:enter_the_solution).permit(:solution))
+	end
 end

@@ -1,4 +1,4 @@
-<table class="table table-striped gradient_background glassmorphism text-white">
+<table class="table table-striped gradient_background glassmorphism text-white mb-0">
   <thead>
     <tr>
       <th scope="col">S.no</th>
@@ -15,7 +15,13 @@
     <% for i in @paginated_questions%>
       <% count = (count + 1)%>
       <tr>
-        <th scope="row"><%= count + 5*(params[:page].to_i - 1) %></th>
+        <th scope="row">
+          <%if params[:page]%>
+            <%= count + 7*(params[:page].to_i - 1) %>
+          <%else%>
+            <%= count %>
+          <%end%>
+        </th>
         <td><%= truncate(i.name, length: 25) %></td>
         <td></td>
         <td><%= i.number_of_questions %></td>
@@ -31,9 +37,3 @@
     <%end%>
   </tbody>
 </table>
-
-<div class="footer">
-  <div class="digg_pagination">
-    <%= will_paginate @paginated_questions %>
-  </div>
-</div>

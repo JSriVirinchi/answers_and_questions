@@ -5,11 +5,27 @@
 	document.getElementById('question_papers_navbar').classList.add('active');	
 </script>
 <div class="container">
-	<h1>Question paper page</h1>
-
+	<h1>List of Assignments</h1>
 	<%= render 'home/question_paper/modal_for_creating_question_paper'%>
-	<div id="list_of_question_papers">
+
+	<div id="list_of_question_papers" class="mt-4 mb-0">
 		<%= render 'home/question_paper/list_of_question_papers'%>		
 	</div>
 	
+	<div class="row glassmorphism_2">
+		<div class="col-5">
+			
+		</div>	
+	  <div class="digg_pagination col-3">
+	    <%= will_paginate @paginated_questions %>
+	  </div>
+	</div>
 </div>
+
+<style type="text/css">
+	body{
+		background-image: url(/assets/background_image.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+</style>

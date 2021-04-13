@@ -161,4 +161,10 @@ class HomeController < ApplicationController
 		    format.js
 	  	end
 	end
+
+	def enter_the_question
+		# User can enter the question in a text area and it stores in database
+		@question = Question.find(params[:question_id])
+		@question.update(params.require(:enter_the_question).permit(:question))
+	end
 end

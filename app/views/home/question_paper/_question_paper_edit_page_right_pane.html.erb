@@ -1,8 +1,15 @@
 <% if question_id != 0 %>
+<% question = Question.find(question_id)%>
+<% enter_the_question_form_submit_button_id = "enter_the_question_form_submit_button_id_" + question_id.to_s %>
 	<div class="right_pane">
 		<div class="row  question_row m-0">
 			<div class="col-7 box_divider">
-				<%= question_id%>
+				<div class="row enter_the_question_row" >
+					<%= form_with scope: :enter_the_question, url: home_enter_the_question_path(question_id), method: :post, class: 'enter_the_question_form' do |f|%>			
+							<%= f.text_area :question, class: 'text_area_for_entering_question', onchange: 'this.form.submit()', value: question.question %>
+							<%= f.submit 'Save', class: 'hide', id: enter_the_question_form_submit_button_id %>	
+					<%end%>	
+				</div>			
 			</div>
 			<div class="col-5 box_divider">
 				f Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -20,8 +27,9 @@
 				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</div>
 			<div class="col-5 box_divider">
-				r
+				<%= question_id%>
 			</div>
 		</div>	
 	</div>
 <% end %>
+

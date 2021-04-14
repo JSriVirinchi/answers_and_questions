@@ -2,10 +2,10 @@
 <% edit_name_after = "edit_name_after_" + @questionpaper.id.to_s %>
 <% edit_name_icon = "edit_name_icon_" + @questionpaper.id.to_s %>
 
-<div class="left_pane">
+<div class="left_pane glassmorphism_3">
 
     <div class="list-group left_pane_questions">
-      <li class="list-group-item bg-dark text-white p-2">
+      <li class="list-group-item glassmorphism_4 text-white p-2">
         <div class="row">
           <div class="col-10" id= <%= edit_name_before %> >
             <%=truncate(@questionpaper.name, length: 25) %>
@@ -21,7 +21,7 @@
         </div>      
       </li>
 
-      <li class="list-group-item  bg-dark text-white p-2">
+      <li class="list-group-item glassmorphism_4 text-white p-2">
         <div class="row">
           <div class="col-10">
             <span class="badge bg-primary rounded-pill" style="float: left;">
@@ -131,3 +131,4 @@
     </div>
 
 </div>
+

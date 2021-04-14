@@ -56,11 +56,14 @@
 }
 
 .question_highlight{
-	background-color: rgb(220,220,220);	
+	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+	border: 1px solid rgba( 255, 255, 255, 0.18 );
+	background: rgba( 255, 255, 255, 0.75 ) !important;
 }
 
 .question_highlight:hover{
-	background-color: rgb(220,220,220);	
+	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+	border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .question_row{
@@ -85,6 +88,17 @@
 
 .list-group-item:hover{
 	z-index: 1060;
+}
+
+.list-group-item-action{
+	background: rgba( 255, 255, 255, 0.25 );
+	border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.list-group-item-action:hover{
+	background: rgba( 255, 255, 255, 0.5 );
+	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+	border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .text_area_for_entering_question{
@@ -127,7 +141,21 @@
 	padding: 10px;
 }
 
+.glassmorphism_3{
+	background: rgba( 255, 255, 255, 0.1 );
+	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+	border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.glassmorphism_4{
+	background: rgba( 0, 0, 0, 0.5 );
+	border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
 
 .gradient_background{
-	background-image: linear-gradient(135deg, #189de4, #242444);;
+	background-image: linear-gradient(135deg, #189de4, #242444);
+}
+
+.list_heading{
+	margin-top: 10px;
 }

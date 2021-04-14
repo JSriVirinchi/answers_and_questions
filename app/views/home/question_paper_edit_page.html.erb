@@ -22,6 +22,15 @@
 	<%= render 'home/question_paper/question_paper_edit_page_right_pane', question_id: @question_id %>
 </div>
 
+<style type="text/css">
+	body{
+		background-image: url(/assets/background_image.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+</style>
+
 <script type="text/javascript">
 	sessionStorage.setItem("active_question_id", "<%= @question_id%>");
 </script>
+

@@ -5,8 +5,15 @@
 	document.getElementById('question_papers_navbar').classList.add('active');	
 </script>
 <div class="container">
-	<h1>List of Assignments</h1>
-	<%= render 'home/question_paper/modal_for_creating_question_paper'%>
+	<div class="row list_heading">
+		<div class="col-10">
+			<h1>List of Assignments</h1>
+		</div>
+		<div class="col-2">
+			<%= render 'home/question_paper/modal_for_creating_question_paper'%>
+		</div>		
+	</div>	
+	
 
 	<div id="list_of_question_papers" class="mt-4 mb-0">
 		<%= render 'home/question_paper/list_of_question_papers'%>		

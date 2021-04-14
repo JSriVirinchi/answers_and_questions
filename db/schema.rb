@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_15_051050) do
+ActiveRecord::Schema.define(version: 2021_04_14_112358) do
 
   create_table "questionpapers", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2021_03_15_051050) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.decimal "total_marks"
+    t.decimal "default_marks"
   end
 
   create_table "questions", force: :cascade do |t|

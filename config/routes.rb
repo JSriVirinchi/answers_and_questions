@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   post 'home/question/change_marks_for_question/:question_id', to: 'home#change_marks_for_question', as: 'home_change_marks_for_question'
   post 'home/question/enter_the_question/:question_id', to:'home#enter_the_question', as: 'home_enter_the_question'
   post 'home/solution/enter_the_solution/:question_id', to:'home#enter_the_solution', as: 'home_enter_the_solution'
+  post 'home/question/question_paper_settings/:questionpaper_id', to: 'home#question_paper_settings', as: 'home_question_paper_settings'
 end

@@ -27,7 +27,7 @@ class HomeController < ApplicationController
 	# questionpaper
 	def create_question_paper
 		# This posts the question paper into the table
-		@questionpaper = Questionpaper.new(params.require(:create_question_paper).permit(:name).merge(user_id: current_user.id, number_of_questions: 0, total_marks: 0))
+		@questionpaper = Questionpaper.new(params.require(:create_question_paper).permit(:name).merge(user_id: current_user.id, number_of_questions: 0, total_marks: 0, default_marks: 2))
 		if @questionpaper.save
 			redirect_to home_question_paper_edit_page_path(@questionpaper.id)
 		else
@@ -71,7 +71,7 @@ class HomeController < ApplicationController
 		# Modifies the total marks accordingly
 		@questionpaper = Questionpaper.find(params[:questionpaper_id])
 		question_number = Question.where(questionpaper_id: @questionpaper.id).count + 1
-		default_marks = 2
+		default_marks = @questionpaper.default_marks
 		@question = Question.create(questionpaper_id: @questionpaper.id, question_number: question_number, marks: default_marks)
 
 		number_of_questions = @questionpaper.number_of_questions
@@ -173,5 +173,19 @@ class HomeController < ApplicationController
 		# User can enter the solution in a text area and it stores in database
 		@question = Question.find(params[:question_id])
 		@question.update(params.require(:enter_the_solution).permit(:solution))
+	end
+
+	def question_paper_settings
+		# Submitting for modifying the question paper settings like default marks.
+		@questionpaper = Questionpaper.find(params[:questionpaper_id])
+		if @questionpaper.update(params.require(:question_paper_settings).permit(:default_marks))
+			@updated = true
+		else
+			@updated = false
+		end		
+
+		respond_to do |format|
+		    format.js
+	  	end
 	end
 end

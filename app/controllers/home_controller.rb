@@ -26,7 +26,8 @@ class HomeController < ApplicationController
 	# questionpaper
 	def create_question_paper
 		# This posts the question paper into the table
-		@questionpaper = Questionpaper.new(params.require(:create_question_paper).permit(:name).merge(user_id: current_user.id, number_of_questions: 0, total_marks: 0, default_marks: 2))
+		@questionpaper = Questionpaper.new(params.require(:create_question_paper).permit(:name, :default_marks).merge(user_id: current_user.id, number_of_questions: 0, total_marks: 0))
+
 		if @questionpaper.save
 			redirect_to home_question_paper_edit_page_path(@questionpaper.id)
 		else

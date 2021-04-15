@@ -2,7 +2,8 @@
 	<% if @questionpaper.errors.full_messages.any? %>
 		<div class="alert alert-danger mt-2">
 			<% @questionpaper.errors.full_messages.each do |error_message| %>
-				<%= error_message if @questionpaper.errors.full_messages.first == error_message %> <br />
+				<%= error_message %>
+				<br>
 			<% end %>
 		</div>	  
 	<% end %>
@@ -12,7 +13,8 @@
 	<% if @question.errors.full_messages.any? %>
 		<div class="alert alert-danger mt-2">
 			<% @question.errors.full_messages.each do |error_message| %>
-				<%= error_message if @question.errors.full_messages.first == error_message %> <br />
+				<%= error_message %> 
+				<br>
 			<% end %>
 		</div>	  
 	<% end %>

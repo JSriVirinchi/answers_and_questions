@@ -47,27 +47,20 @@
               </div>
 
               <div class="modal-body">
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-4">
-                      Default marks
+                      Default marks <span style="color: red"> * </span> :
                     </div>
                     <div class="col-8">
                       <%= f.number_field :default_marks, step: 0.125 , min: 0, class: 'form-control', value: @questionpaper.default_marks %>
                     </div>
-                    <br>
-                    <br>
+                  </div>  
 
-                    <div id="question_paper_settings_error_messages" >
-                      <%= render 'home/question_paper/error_messages_for_modal'%>
-                    </div>
 
-                    <div style="float: left;">
-                        <ul style="text-align: left;">
-                          <li>Enter only numbers</li>
-                          <li>Decimal increment in 0.125</li>
-                        </ul>
-                      </div>
-                  </div>               
+                  <div id="question_paper_settings_error_messages" >
+                    <%= render 'home/question_paper/error_messages_for_modal'%>
+                  </div> 
+
               </div>
 
               <div class="modal-footer">

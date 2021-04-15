@@ -9,7 +9,11 @@ document.getElementById('<%= question_paper_edit_page_left_pane %>').innerHTML =
 
 	// If selected question is deleted
 	if (sessionStorage.getItem('active_question_id') == "<%= @question.id %>"){
-		<% new_question_id = Question.where(questionpaper_id: @questionpaper.id).first.id %>
+		<%if Question.where(questionpaper_id: @questionpaper.id).first%>
+			<% new_question_id = Question.where(questionpaper_id: @questionpaper.id).first.id %>
+		<%else%>
+			<% new_question_id = 0 %>
+		<%end%>	
 		document.getElementById('<%= question_paper_edit_page_right_pane %>').innerHTML = "<%= j render 'home/question_paper/question_paper_edit_page_right_pane', question_id: new_question_id %>";
 		
 		    <% entire_question_div = "entire_question_div_" + new_question_id.to_s%>

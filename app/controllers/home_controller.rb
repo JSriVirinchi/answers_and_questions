@@ -13,8 +13,7 @@ class HomeController < ApplicationController
 		# This is question paper page. The list of question papers can be seen here.
 		# One can create, edit, view, delete papers here.
 		# It is available for teacher role.
-		@paginated_questions = Questionpaper.where(user_id: current_user.id).paginate(page: params[:page], per_page: 7)
-
+		
 	end
 
 	def question_paper_edit_page
@@ -146,17 +145,22 @@ class HomeController < ApplicationController
 		# And accordingly the total marks also change
 
 		@question = Question.find(params[:question_id])
-		@question.update(params.require(:change_marks_for_question).permit(:marks))
-		
-		# fixing the total marks		
 		@questionpaper = Questionpaper.find(@question.questionpaper_id)
+		if @question.update(params.require(:change_marks_for_question).permit(:marks))
+			@updated = true
 
-		total_marks = 0 
-		for i in Question.where(questionpaper_id: @questionpaper.id)
-			total_marks = total_marks + i.marks 
-		end
+			# fixing the total marks		
+			@questionpaper = Questionpaper.find(@question.questionpaper_id)
+			total_marks = 0 
 
-		@questionpaper.update(total_marks: total_marks)
+			for i in Question.where(questionpaper_id: @questionpaper.id)
+				total_marks = total_marks + i.marks 
+			end
+			@questionpaper.update(total_marks: total_marks)
+
+		else
+			@updated = false
+		end	
 
 		respond_to do |format|
 		    format.js

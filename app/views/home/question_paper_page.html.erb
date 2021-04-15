@@ -24,7 +24,7 @@
 			
 		</div>	
 	  <div class="digg_pagination col-3">
-	    <%= will_paginate @paginated_questions %>
+	    <%= will_paginate Questionpaper.where(user_id: current_user.id).paginate(page: params[:page], per_page: 7) %>
 	  </div>
 	</div>
 </div>

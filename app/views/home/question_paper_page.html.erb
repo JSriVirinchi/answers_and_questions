@@ -18,15 +18,7 @@
 	<div id="list_of_question_papers" class="mt-4 mb-0">
 		<%= render 'home/question_paper/list_of_question_papers'%>		
 	</div>
-	
-	<div class="row glassmorphism_2">
-		<div class="col-5">
-			
-		</div>	
-	  <div class="digg_pagination col-3">
-	    <%= will_paginate Questionpaper.where(user_id: current_user.id).paginate(page: params[:page], per_page: 7) %>
-	  </div>
-	</div>
+
 </div>
 
 <style type="text/css">

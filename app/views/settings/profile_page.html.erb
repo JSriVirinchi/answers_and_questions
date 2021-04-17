@@ -1,0 +1,22 @@
+<%= render 'layouts/navbar'%>
+
+<script type="text/javascript">
+	document.getElementById('dashboard_navbar').classList.remove('active');
+	document.getElementById('question_papers_navbar').classList.remove('active');	
+</script>
+
+<%= render 'settings/profile_page/profile_page_left_pane'%>
+<%= render 'settings/profile_page/profile_page_right_pane'%>
+
+
+<style type="text/css">
+	html {
+	  background: url(/assets/background_image.jpg) no-repeat center center fixed;
+	  background-size: cover;
+	  height: 100%;
+	  overflow: hidden;
+	}
+	body{
+		background-color: rgba(0,0,0,0);
+	}
+</style>

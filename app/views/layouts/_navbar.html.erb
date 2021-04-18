@@ -24,7 +24,7 @@
             Dropdown
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><%= link_to "Profile", settings_profile_page_path(current_user.id), class: 'dropdown-item' %></li>
+            <li><%= link_to "Profile", settings_profile_page_path, class: 'dropdown-item' %></li>
             <li><hr class="dropdown-divider"></li>
             <li><%= link_to "Landing page", general_landing_page_path, class: 'dropdown-item' %></li>
           </ul>

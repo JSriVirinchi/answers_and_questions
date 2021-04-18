@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'home#dashboard_page'
   get 'home/question_paper_page', to: 'home#question_paper_page', as: 'home_question_paper_page'
   get 'home/question_paper_edit_page/:questionpaper_id', to: 'home#question_paper_edit_page', as: 'home_question_paper_edit_page'
-  get 'settings/profile_page/:user_id', to: 'settings#profile_page', as:'settings_profile_page'
+  get 'settings/profile_page', to: 'settings#profile_page', as:'settings_profile_page'
 
   # General pages
   get 'general/landing_page', to: 'general#landing_page', as: 'general_landing_page'
@@ -26,4 +26,10 @@ Rails.application.routes.draw do
   post 'home/question/enter_the_question/:question_id', to:'home#enter_the_question', as: 'home_enter_the_question'
   post 'home/solution/enter_the_solution/:question_id', to:'home#enter_the_solution', as: 'home_enter_the_solution'
   post 'home/question/question_paper_settings/:questionpaper_id', to: 'home#question_paper_settings', as: 'home_question_paper_settings'
+
+  # settings functions
+  # profile page
+  get 'settings/profile_page/right_pane/:right_pane_view', to: 'settings#profile_page_right_pane_view', as: 'settings_profile_page_right_pane_view'
+  get 'settings/profile_page/edit_profile_details', to: 'settings#edit_profile_details', as: 'settings_edit_profile_details'
+  post 'settings/profile_page/profile_details_submit_form', to: 'settings#profile_details_submit_form', as: 'settings_profile_details_submit_form'
 end

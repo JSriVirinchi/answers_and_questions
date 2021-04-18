@@ -1,25 +1,15 @@
 <div class="left_pane glassmorphism_3">
-	<div class="text-center">
-		<%= image_tag('background_image.jpg', size: "150", class: 'rounded_image_profile_pic')%>
+	<div id="profile_page_left_pane_details_partial_id">
+		<%= render 'settings/profile_page/profile_page_left_pane_details'%>
 	</div>
-
-	<div class="text-center">
-		<div class="user_info ">
-			Name of the user
-			<br>
-			Teacher at
-			<br>
-			Name of the School
-		</div>
-	</div>
-	
+		
 	<div  class="divider mb-1">
 	</div>
 
 	<div class="list-group">
-		<%= link_to 'Analytics', root_path, class:'list-group-item list-group-item-action question_highlight'%>
-		<%= link_to 'Profile', root_path, class:'text-white list-group-item list-group-item-action '%>
-		<%= link_to 'Settings', root_path, class:'text-white list-group-item list-group-item-action '%>
+		<%= link_to 'Analytics', settings_profile_page_right_pane_view_path('analytics'), class:'list-group-item list-group-item-action question_highlight', id: 'settings_profile_page_right_pane_view_link_analytics', remote: true%>
+		<%= link_to 'Profile details', settings_profile_page_right_pane_view_path('profile'), class:'text-white list-group-item list-group-item-action ', id: 'settings_profile_page_right_pane_view_link_profile_details', remote: true%>
+		<%= link_to 'Settings', settings_profile_page_right_pane_view_path('settings'), class:'text-white list-group-item list-group-item-action ', id: 'settings_profile_page_right_pane_view_link_settings', remote: true%>
 	</div>
 
 

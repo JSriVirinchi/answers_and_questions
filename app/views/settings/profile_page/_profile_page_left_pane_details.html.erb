@@ -1,0 +1,16 @@
+<% custom_current_user_id = current_user.id %>
+<% custom_current_user = User.find(custom_current_user_id)%>
+
+<div class="text-center">
+	<%= image_tag('background_image.jpg', size: "150", class: 'rounded_image_profile_pic')%>
+</div>
+
+<div class="text-center">
+	<div class="user_info ">
+		<%= custom_current_user.first_name %> <%= custom_current_user.last_name%>
+		<br>
+		Teacher at
+		<br>
+		Name of the School
+	</div>
+</div>

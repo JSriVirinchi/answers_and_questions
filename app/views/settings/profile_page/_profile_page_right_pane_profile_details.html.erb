@@ -1,0 +1,103 @@
+<div class="right_pane glassmorphism_4">
+	<!-- profile details -->
+	<div id="profile_details_display_only_id" >
+		<div class="profile_details_heading">
+			<div class="row">
+				<div class="col-11">
+					Profile Details
+				</div>
+				<div class="col-1">
+					<%= link_to 'Edit', settings_edit_profile_details_path, class: 'white_link',remote: true %>
+				</div>
+			</div>				
+		</div>
+
+		<div class="profile_details_body">
+			<div id="profile_page_right_pane_profile_details_body_partial">
+				<div class="row">
+					<div class="col-9">
+						Name: <%= current_user.first_name %>  <%= current_user.last_name%>
+						<br>
+						Role: Teacher
+					</div>
+					<div class="col-3">
+						pic
+					</div>
+				</div>
+			</div>					
+		</div>
+	</div>
+
+	<div id="profile_details_edit_only_id" class="hide">
+		<div class="profile_details_heading">
+			<div class="row">
+				<div class="col-11">
+					Profile Details
+				</div>
+			</div>				
+		</div>
+
+		<div class="profile_details_body">
+			<%= form_with scope: :profile_details_submit_form, url: settings_profile_details_submit_form_path, method: :post, remote: true do |f|%>
+				<div class="row">
+					<div class="col-9">
+						<div class="row">
+							<div class=" col-6">
+								First name:
+							</div>
+							<div class=" col-6">
+								Last name:
+							</div>
+						</div>
+						<div class="row">
+							<div class=" col-6">
+								<%= f.text_field :first_name, value: current_user.first_name ,class: 'form-control'%>
+							</div>
+							<div class=" col-6">
+								<%= f.text_field :last_name, value: current_user.last_name ,class: 'form-control'%>
+							</div>
+						</div>
+						<div class="row mt-2">
+							<div class="col-10">
+								
+							</div>
+							<div class="col-2 text-center">
+								<%= f.submit 'Save', class: 'btn btn-info'%>
+							</div>							
+						</div>
+					</div>
+					<div class="col-3">
+						pic
+					</div>
+				</div>	
+			<%end%>	
+		</div>
+	</div>
+	
+
+	<!-- school details -->
+	<div class="profile_details_heading">
+		<div class="row">
+			<div class="col-11">
+				School Details
+			</div>
+			<div class="col-1">
+				Edit
+			</div>
+		</div>				
+	</div>
+
+	<div class="profile_details_body">
+		<div class="row">
+			<div class="col-9">
+				Name: School's name
+				<br>
+				Address: address
+			</div>
+			<div class="col-3">
+				pic
+			</div>
+		</div>		
+	</div>
+
+</div>

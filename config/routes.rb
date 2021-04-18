@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   delete 'home/delete_question_paper/:questionpaper_id', to: 'home#delete_question_paper', as: 'home_delete_question_paper'
   get 'home/edit_name_question_paper/:questionpaper_id', to: 'home#edit_name_question_paper', as: 'home_edit_name_question_paper'
   put 'home/edit_name_question_paper_submit/:questionpaper_id', to: 'home#edit_name_question_paper_submit', as: 'home_edit_name_question_paper_submit'
-
+  get 'home/home_page/right_pane/:right_pane_view', to: 'home#home_page_right_pane_view', as: 'home_page_right_pane_view'
+  
   # question
   post 'home/create_question/:questionpaper_id', to: 'home#create_question', as: 'home_create_question'
   delete 'home/delete_question/:question_id', to: 'home#delete_question', as: 'home_delete_question'
@@ -32,4 +33,5 @@ Rails.application.routes.draw do
   get 'settings/profile_page/right_pane/:right_pane_view', to: 'settings#profile_page_right_pane_view', as: 'settings_profile_page_right_pane_view'
   get 'settings/profile_page/edit_profile_details', to: 'settings#edit_profile_details', as: 'settings_edit_profile_details'
   post 'settings/profile_page/profile_details_submit_form', to: 'settings#profile_details_submit_form', as: 'settings_profile_details_submit_form'
+
 end

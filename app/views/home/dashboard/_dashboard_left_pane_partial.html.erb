@@ -1,0 +1,19 @@
+<div class="left_pane glassmorphism_3">
+
+	<div class="list-group">
+		<div class="row pb-3">
+			<div class="col-3 text-center">
+				<%= link_to image_tag('background_image.jpg', size: "50", class: 'rounded_image_profile_pic'), settings_profile_page_path%>
+			</div>
+			<% user_name = current_user.first_name.to_s + " "+current_user.last_name.to_s%>
+			<div class="col-8 text-center text-white pt-3 pb-3 pl-0 pr-0">
+				<%= link_to truncate(user_name, length: 25), settings_profile_page_path, class: 'white_link'%> 
+			</div>
+		</div>
+
+		<%= link_to 'Home', home_page_right_pane_view_path('home'), class:'list-group-item list-group-item-action question_highlight', id: 'home_page_right_pane_view_link_home', remote: true%>
+		<%= link_to 'Classes', home_page_right_pane_view_path('classes'), class:'text-white list-group-item list-group-item-action ', id: 'home_page_right_pane_view_link_classes', remote: true%>
+		<%= link_to 'Analytics', home_page_right_pane_view_path('analytics'), class:'text-white list-group-item list-group-item-action ', id: 'home_page_right_pane_view_link_analytics', remote: true%>
+	</div>
+
+</div>

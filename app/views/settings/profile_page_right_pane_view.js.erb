@@ -4,11 +4,19 @@
 	document.getElementById('settings_profile_page_right_pane_view_link_profile_details').classList.remove('question_highlight');
 	document.getElementById('settings_profile_page_right_pane_view_link_settings').classList.remove('question_highlight');
 
+	document.getElementById('settings_profile_page_right_pane_view_link_analytics').classList.remove('text-white');
+	document.getElementById('settings_profile_page_right_pane_view_link_profile_details').classList.add('text-white');
+	document.getElementById('settings_profile_page_right_pane_view_link_settings').classList.add('text-white');
+
 <%elsif @right_pane_view == 'profile'%>
 	document.getElementById('profile_page_right_pane_partail_id').innerHTML = "<%= j render 'settings/profile_page/profile_page_right_pane_profile_details'%>";
 	document.getElementById('settings_profile_page_right_pane_view_link_analytics').classList.remove('question_highlight');
 	document.getElementById('settings_profile_page_right_pane_view_link_profile_details').classList.add('question_highlight');
 	document.getElementById('settings_profile_page_right_pane_view_link_settings').classList.remove('question_highlight');
+
+	document.getElementById('settings_profile_page_right_pane_view_link_analytics').classList.add('text-white');
+	document.getElementById('settings_profile_page_right_pane_view_link_profile_details').classList.remove('text-white');
+	document.getElementById('settings_profile_page_right_pane_view_link_settings').classList.add('text-white');
 
 <%elsif @right_pane_view == 'settings'%>
 	document.getElementById('profile_page_right_pane_partail_id').innerHTML = "<%= j render 'settings/profile_page/profile_page_right_pane_settings'%>";
@@ -16,4 +24,7 @@
 	document.getElementById('settings_profile_page_right_pane_view_link_profile_details').classList.remove('question_highlight');
 	document.getElementById('settings_profile_page_right_pane_view_link_settings').classList.add('question_highlight');
 
+	document.getElementById('settings_profile_page_right_pane_view_link_analytics').classList.add('text-white');
+	document.getElementById('settings_profile_page_right_pane_view_link_profile_details').classList.add('text-white');
+	document.getElementById('settings_profile_page_right_pane_view_link_settings').classList.remove('text-white');
 <%end%>

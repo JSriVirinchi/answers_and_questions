@@ -193,4 +193,12 @@ class HomeController < ApplicationController
 		    format.js
 	  	end
 	end
+
+	def home_page_right_pane_view
+		# Changing the right pane view of the home page
+		@right_pane_view = params[:right_pane_view]
+		respond_to do |format|
+		    format.js
+	  	end
+	end
 end

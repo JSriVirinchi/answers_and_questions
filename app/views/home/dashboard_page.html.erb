@@ -3,8 +3,25 @@
 <script type="text/javascript">
 	document.getElementById('dashboard_navbar').classList.add('active');
 	document.getElementById('question_papers_navbar').classList.remove('active');	
+	document.getElementById('profile_navbar').classList.remove('active');	
 </script>
 
-<h1>This the dashboard page</h1>
-<h5>We can see the interaction between various roles</h5>
 
+<%= render 'home/dashboard/dashboard_left_pane_partial'%>
+
+<div id="home_page_right_pane_partial_id">
+	<%= render 'home/dashboard/dashboard_right_pane_home'%>
+</div>
+
+
+<style type="text/css">
+	html {
+	  background: url(/assets/background_image.jpg) no-repeat center center fixed;
+	  background-size: cover;
+	  height: 100%;
+	  overflow: hidden;
+	}
+	body{
+		background-color: rgba(0,0,0,0);
+	}
+</style>

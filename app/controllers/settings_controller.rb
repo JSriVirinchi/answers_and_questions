@@ -34,4 +34,21 @@ class SettingsController < ApplicationController
 		    format.js
 	  	end
 	end
+
+	def edit_profile_details_school_details
+		# link to show the form of editing school details
+		respond_to do |format|
+		    format.js
+	  	end
+	end
+
+	def profile_details_school_details_submit_form
+		# Submits the school details form to update user information
+		school = School.find(current_user.school_id)
+		school.update(params.require(:profile_details_school_details_submit_form).permit(:name, :address, :description, :phone))
+		
+		respond_to do |format|
+		    format.js
+	  	end
+	end
 end

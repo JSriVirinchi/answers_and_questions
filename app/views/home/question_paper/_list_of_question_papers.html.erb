@@ -1,24 +1,45 @@
 <%if Questionpaper.where(user_id: current_user.id).count > 0%>
+  <div class="glassmorphism_6">
+    
+  </div>
   <table class="table table-striped gradient_background glassmorphism text-white mb-0">
+
     <thead>
       <tr>
         <th scope="col">S.no</th>
-        <th scope="col">Name</th>
+        <th scope="col">
+          Name 
+          <%= link_to'<i class="bi bi-arrow-up"></i>'.html_safe, home_list_of_questions_sort_path('name_asc'), class: 'white_link', id:'list_of_questions_sort_name_arrow_up_id', remote: true %> 
+          <%= link_to'<i class="bi bi-arrow-down"></i>'.html_safe, home_list_of_questions_sort_path('name_desc'), class: 'white_link hide', id:'list_of_questions_sort_name_arrow_down_id',remote: true %> 
+        </th>
         <th scope="col">Class</th>
-        <th scope="col">No: of Questions</th>
-        <th scope="col">Marks</th>
-        <th scope="col">Date Created</th>
+        <th scope="col">
+          No: of Questions
+          <%= link_to'<i class="bi bi-arrow-up"></i>'.html_safe, home_list_of_questions_sort_path('no_of_questions_asc'), class: 'white_link', id:'list_of_questions_sort_no_of_questions_arrow_up_id', remote: true %> 
+          <%= link_to'<i class="bi bi-arrow-down"></i>'.html_safe, home_list_of_questions_sort_path('no_of_questions_desc'), class: 'white_link hide', id:'list_of_questions_sort_no_of_questions_arrow_down_id',remote: true %> 
+        </th>
+        <th scope="col">
+          Marks
+          <%= link_to'<i class="bi bi-arrow-up"></i>'.html_safe, home_list_of_questions_sort_path('marks_asc'), class: 'white_link', id:'list_of_questions_sort_marks_arrow_up_id', remote: true %> 
+          <%= link_to'<i class="bi bi-arrow-down"></i>'.html_safe, home_list_of_questions_sort_path('marks_desc'), class: 'white_link hide', id:'list_of_questions_sort_marks_arrow_down_id',remote: true %> 
+        </th>
+        <th scope="col">
+          Date Created
+          <%= link_to'<i class="bi bi-arrow-up"></i>'.html_safe, home_list_of_questions_sort_path('date_created_asc'), class: 'white_link hide', id:'list_of_questions_sort_date_created_arrow_up_id', remote: true %> 
+          <%= link_to'<i class="bi bi-arrow-down"></i>'.html_safe, home_list_of_questions_sort_path('date_created_desc'), class: 'white_link', id:'list_of_questions_sort_date_created_arrow_down_id',remote: true %> 
+        </th>
         <th scope="col">Options</th>
       </tr>
     </thead>
+
     <tbody>
       <% count = 0%>
-      <% for i in Questionpaper.where(user_id: current_user.id).paginate(page: params[:page], per_page: 7)%>
+      <% for i in pagination_questions%>
         <% count = (count + 1)%>
         <tr>
           <th scope="row">
-            <%if count >7 && params[:page]%>
-              <%= count + 7*(params[:page].to_i - 1) %>
+            <%if count >number_of_questions_per_page && params[:page]%>
+              <%= count + number_of_questions_per_page*(params[:page].to_i - 1) %>
             <%else%>
               <%= count %>
             <%end%>
@@ -39,12 +60,9 @@
     </tbody>
   </table>
 
-  <div class="row glassmorphism_2">
-    <div class="col-5">
-      
-    </div>  
-    <div class="digg_pagination col-3">
-      <%= will_paginate Questionpaper.where(user_id: current_user.id).paginate(page: params[:page], per_page: 7) %>
+  <div class="glassmorphism_2">
+    <div class="digg_pagination container" style="overflow-x: auto; overflow-y: hidden;">
+      <%= will_paginate pagination_questions, inner_window: 2, outer_window: 1%>
     </div>
   </div>
 

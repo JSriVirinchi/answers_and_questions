@@ -1,5 +1,4 @@
 .digg_pagination {
-  background: transparent;
   cursor: default;
   /* self-clearing method: */ }
   .digg_pagination a, .digg_pagination span, .digg_pagination em {
@@ -8,9 +7,7 @@
     float: left;
     margin-right: 1px; }
   .digg_pagination .disabled {
-    color: #999999;
-    border: 1px solid #dddddd;
-    border-radius: 5px; }
+    color: #999999;}
   .digg_pagination .current {
     font-style: normal;
     font-weight: bold;
@@ -20,7 +17,7 @@
     border-radius: 5px; }
   .digg_pagination a {
     text-decoration: none;
-    color: #105cb6;
+    color: white;
     border: 1px solid #9aafe5;
     border-radius: 5px; }
     .digg_pagination a:hover, .digg_pagination a:focus {

@@ -1,13 +1,10 @@
 <div class="left_pane glassmorphism_3">
 
 	<div class="list-group">
-		<div class="row pb-3">
-			<div class="col-3 text-center">
-				<%= link_to image_tag('background_image.jpg', size: "50", class: 'rounded_image_profile_pic'), settings_profile_page_path%>
-			</div>
+		<div class="row pb-1">
 			<% user_name = current_user.first_name.to_s + " "+current_user.last_name.to_s%>
-			<div class="col-8 text-center text-white pt-3 pb-3 pl-0 pr-0">
-				<%= link_to truncate(user_name, length: 25), settings_profile_page_path, class: 'white_link'%> 
+			<div class="col-12 text-center text-white pt-3 pb-3 pl-0 pr-0">
+				Hi, <%= link_to truncate(user_name, length: 30), settings_profile_page_path, class: 'white_link'%> 
 			</div>
 		</div>
 

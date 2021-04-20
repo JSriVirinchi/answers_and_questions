@@ -13,7 +13,8 @@ class HomeController < ApplicationController
 		# This is question paper page. The list of question papers can be seen here.
 		# One can create, edit, view, delete papers here.
 		# It is available for teacher role.
-		
+		@number_of_questions_per_page = 7
+		@pagination_questions = Questionpaper.where(user_id: current_user.id).paginate(page: params[:page], per_page: @number_of_questions_per_page)
 	end
 
 	def question_paper_edit_page
@@ -197,6 +198,13 @@ class HomeController < ApplicationController
 	def home_page_right_pane_view
 		# Changing the right pane view of the home page
 		@right_pane_view = params[:right_pane_view]
+		respond_to do |format|
+		    format.js
+	  	end
+	end
+
+	def list_of_questions_sort
+		@attribute = params[:attribute]
 		respond_to do |format|
 		    format.js
 	  	end

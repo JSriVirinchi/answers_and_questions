@@ -1,0 +1,65 @@
+<% if @attribute == 'name_asc'%>
+	<% @number_of_questions_per_page = 7%>
+	<% @pagination_questions = Questionpaper.where(user_id: current_user.id).order('name ASC').paginate(page: params[:page], per_page: @number_of_questions_per_page)%>
+	document.getElementById('list_of_question_papers').innerHTML = "<%= j render 'home/question_paper/list_of_question_papers', pagination_questions: @pagination_questions, number_of_questions_per_page: @number_of_questions_per_page %>";
+
+	document.getElementById('list_of_questions_sort_name_arrow_up_id').classList.add('hide');
+	document.getElementById('list_of_questions_sort_name_arrow_down_id').classList.remove('hide');
+
+<%elsif @attribute == 'name_desc'%>
+	<% @number_of_questions_per_page = 7%>
+	<% @pagination_questions = Questionpaper.where(user_id: current_user.id).order('name DESC').paginate(page: params[:page], per_page: @number_of_questions_per_page)%>
+	document.getElementById('list_of_question_papers').innerHTML = "<%= j render 'home/question_paper/list_of_question_papers', pagination_questions: @pagination_questions, number_of_questions_per_page: @number_of_questions_per_page %>";
+
+	document.getElementById('list_of_questions_sort_name_arrow_up_id').classList.remove('hide');
+	document.getElementById('list_of_questions_sort_name_arrow_down_id').classList.add('hide');
+
+<% elsif @attribute == 'marks_asc'%>
+	<% @number_of_questions_per_page = 7%>
+	<% @pagination_questions = Questionpaper.where(user_id: current_user.id).order('total_marks ASC').paginate(page: params[:page], per_page: @number_of_questions_per_page)%>
+	document.getElementById('list_of_question_papers').innerHTML = "<%= j render 'home/question_paper/list_of_question_papers', pagination_questions: @pagination_questions, number_of_questions_per_page: @number_of_questions_per_page %>";
+
+	document.getElementById('list_of_questions_sort_marks_arrow_up_id').classList.add('hide');
+	document.getElementById('list_of_questions_sort_marks_arrow_down_id').classList.remove('hide');
+
+<%elsif @attribute == 'marks_desc'%>
+	<% @number_of_questions_per_page = 7%>
+	<% @pagination_questions = Questionpaper.where(user_id: current_user.id).order('total_marks DESC').paginate(page: params[:page], per_page: @number_of_questions_per_page)%>
+	document.getElementById('list_of_question_papers').innerHTML = "<%= j render 'home/question_paper/list_of_question_papers', pagination_questions: @pagination_questions, number_of_questions_per_page: @number_of_questions_per_page %>";
+
+	document.getElementById('list_of_questions_sort_marks_arrow_up_id').classList.remove('hide');
+	document.getElementById('list_of_questions_sort_marks_arrow_down_id').classList.add('hide');
+
+<% elsif @attribute == 'no_of_questions_asc'%>
+	<% @number_of_questions_per_page = 7%>
+	<% @pagination_questions = Questionpaper.where(user_id: current_user.id).order('number_of_questions ASC').paginate(page: params[:page], per_page: @number_of_questions_per_page)%>
+	document.getElementById('list_of_question_papers').innerHTML = "<%= j render 'home/question_paper/list_of_question_papers', pagination_questions: @pagination_questions, number_of_questions_per_page: @number_of_questions_per_page %>";
+
+	document.getElementById('list_of_questions_sort_no_of_questions_arrow_up_id').classList.add('hide');
+	document.getElementById('list_of_questions_sort_no_of_questions_arrow_down_id').classList.remove('hide');
+
+<%elsif @attribute == 'no_of_questions_desc'%>
+	<% @number_of_questions_per_page = 7%>
+	<% @pagination_questions = Questionpaper.where(user_id: current_user.id).order('number_of_questions DESC').paginate(page: params[:page], per_page: @number_of_questions_per_page)%>
+	document.getElementById('list_of_question_papers').innerHTML = "<%= j render 'home/question_paper/list_of_question_papers', pagination_questions: @pagination_questions, number_of_questions_per_page: @number_of_questions_per_page %>";
+
+	document.getElementById('list_of_questions_sort_no_of_questions_arrow_up_id').classList.remove('hide');
+	document.getElementById('list_of_questions_sort_no_of_questions_arrow_down_id').classList.add('hide');
+	
+<% elsif @attribute == 'date_created_asc'%>
+	<% @number_of_questions_per_page = 7%>
+	<% @pagination_questions = Questionpaper.where(user_id: current_user.id).order('created_at ASC').paginate(page: params[:page], per_page: @number_of_questions_per_page)%>
+	document.getElementById('list_of_question_papers').innerHTML = "<%= j render 'home/question_paper/list_of_question_papers', pagination_questions: @pagination_questions, number_of_questions_per_page: @number_of_questions_per_page %>";
+
+	document.getElementById('list_of_questions_sort_no_of_questions_arrow_up_id').classList.add('hide');
+	document.getElementById('list_of_questions_sort_no_of_questions_arrow_down_id').classList.remove('hide');
+
+<%elsif @attribute == 'date_created_desc'%>
+	<% @number_of_questions_per_page = 7%>
+	<% @pagination_questions = Questionpaper.where(user_id: current_user.id).order('created_at DESC').paginate(page: params[:page], per_page: @number_of_questions_per_page)%>
+	document.getElementById('list_of_question_papers').innerHTML = "<%= j render 'home/question_paper/list_of_question_papers', pagination_questions: @pagination_questions, number_of_questions_per_page: @number_of_questions_per_page %>";
+
+	document.getElementById('list_of_questions_sort_date_created_arrow_up_id').classList.remove('hide');
+	document.getElementById('list_of_questions_sort_date_created_arrow_down_id').classList.add('hide');
+
+<%end%>

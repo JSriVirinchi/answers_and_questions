@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   get 'home/edit_name_question_paper/:questionpaper_id', to: 'home#edit_name_question_paper', as: 'home_edit_name_question_paper'
   put 'home/edit_name_question_paper_submit/:questionpaper_id', to: 'home#edit_name_question_paper_submit', as: 'home_edit_name_question_paper_submit'
   get 'home/home_page/right_pane/:right_pane_view', to: 'home#home_page_right_pane_view', as: 'home_page_right_pane_view'
-  get 'home/questionpaper_page/list_of_questions_sort/:attribute', to: 'home#list_of_questions_sort', as:'home_list_of_questions_sort'
 
   # question
   post 'home/create_question/:questionpaper_id', to: 'home#create_question', as: 'home_create_question'

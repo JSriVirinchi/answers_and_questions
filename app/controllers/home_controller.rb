@@ -42,6 +42,8 @@ class HomeController < ApplicationController
 		# One can delete question papers
 		@questionpaper = Questionpaper.find(params[:questionpaper_id])
 		@questionpaper.destroy
+		@pagination_questions = Questionpaper.all
+		@number_of_questions_per_page = 7
 		respond_to do |format|
 		    format.js
 	  	end
@@ -198,13 +200,6 @@ class HomeController < ApplicationController
 	def home_page_right_pane_view
 		# Changing the right pane view of the home page
 		@right_pane_view = params[:right_pane_view]
-		respond_to do |format|
-		    format.js
-	  	end
-	end
-
-	def list_of_questions_sort
-		@attribute = params[:attribute]
 		respond_to do |format|
 		    format.js
 	  	end

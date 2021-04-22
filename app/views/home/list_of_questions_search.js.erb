@@ -1,0 +1,7 @@
+console.log('<%= @pagination_questions.count%>');
+<%for i in @pagination_questions%>
+	console.log('<%= i.name%>');
+<%end%>
+
+document.getElementById('list_of_question_papers_table_partial_id').innerHTML = "<%= j render 'home/question_paper/list_of_question_papers_table' , pagination_questions: @pagination_questions, number_of_questions_per_page: @number_of_questions_per_page %>";
+document.getElementById('list_of_question_papers_pagination_partial_id').innerHTML = "<%= j render 'home/question_paper/list_of_question_papers_pagination' , pagination_questions: @pagination_questions %>";

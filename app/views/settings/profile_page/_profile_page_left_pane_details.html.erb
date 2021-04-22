@@ -7,7 +7,7 @@
 
 <div class="text-center">
 	<div class="user_info ">
-		<% user_name = current_user.first_name.to_s + " "+current_user.last_name.to_s%>
+		<% user_name = custom_current_user.first_name.to_s + " "+ custom_current_user.last_name.to_s%>
 		<h6><%= truncate(user_name, length: 25)%></h6>
 		<em>Teacher at</em>
 		<br>

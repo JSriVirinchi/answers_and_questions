@@ -1,0 +1,22 @@
+<%if Questionpaper.where(user_id: current_user.id).count > 0%>
+  <div class="glassmorphism_6">
+    
+  </div>
+
+  <div id="list_of_question_papers_table_partial_id">
+    <%= render 'home/question_paper/list_of_question_papers_table' , pagination_questions: @pagination_questions, number_of_questions_per_page: @number_of_questions_per_page %>
+  </div>  
+
+  <div class="glassmorphism_2">
+    <div id="list_of_question_papers_pagination_partial_id">
+      <%= render 'home/question_paper/list_of_question_papers_pagination' , pagination_questions: @pagination_questions %>
+    </div>
+  </div>  
+  
+
+<%else%>
+  <div class="glassmorphism_5 text-dark no_list_of_question_papers">
+    <h2>There are no question papers to show.</h2>
+    <h5> You can create a question paper by clicking the bule button on the top right.</h5>
+  </div>
+<%end%>

@@ -1,0 +1,22 @@
+<%if @logged_in == true %>
+	<%= render 'layouts/navbar'%>
+
+	<script type="text/javascript">
+		document.getElementById('dashboard_navbar').classList.remove('active');
+		document.getElementById('question_papers_navbar').classList.remove('active');	
+	</script>
+
+<%end%>
+
+<h1>Landing page of Answers and Questions</h1>
+
+<%if @logged_in == false%>
+	<%= link_to 'login', new_user_session_path %>
+	<%= link_to 'Sign Up', new_user_registration_path %>
+<%else%>
+	<p>You are already logged in. PLease go to your dashboard</p>
+	<%= link_to 'Go to dashboard', root_path %>	
+<%end%>	
+
+
+

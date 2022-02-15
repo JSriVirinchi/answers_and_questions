@@ -1,0 +1,35 @@
+<%= render 'layouts/navbar'%>
+
+<script type="text/javascript">
+	document.getElementById('dashboard_navbar').classList.remove('active');
+	document.getElementById('question_papers_navbar').classList.add('active');	
+	document.getElementById('profile_navbar').classList.remove('active');	
+</script>
+
+<div class="container">
+	<div class="row list_heading">
+		<div class="col-10">
+			<h1>List of Assignments</h1>
+		</div>
+		<div class="col-2">
+			<%= render 'home/question_paper/modal_for_creating_question_paper'%>
+		</div>		
+	</div>	
+	
+
+	<div id="list_of_question_papers" class="mt-4 mb-0">
+		<%= render 'home/question_paper/list_of_question_papers', pagination_questions: @pagination_questions, number_of_questions_per_page: @number_of_questions_per_page %>		
+	</div>
+
+</div>
+
+<style type="text/css">
+	html {
+	  background: url(/assets/background_image.jpg) no-repeat center center fixed;
+	  background-size: cover;
+	  height: 100%;
+	}
+	body{
+		background-color: rgba(0,0,0,0);
+	}
+</style>

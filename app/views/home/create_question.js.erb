@@ -1,0 +1,30 @@
+// Refresh left pane
+<% question_paper_edit_page_left_pane = 'question_paper_edit_page_left_pane_' + @questionpaper.id.to_s%>
+
+document.getElementById('<%= question_paper_edit_page_left_pane %>').innerHTML = "<%= j render 'home/question_paper/question_paper_edit_page_left_pane'%>";
+
+// Refresh right pane
+<% question_paper_edit_page_right_pane = 'question_paper_edit_page_right_pane_' + @questionpaper.id.to_s%>
+
+document.getElementById('<%= question_paper_edit_page_right_pane %>').innerHTML = "<%= j render 'home/question_paper/question_paper_edit_page_right_pane', question_id: @question.id %>";
+
+// Highlight question
+<% for i in Question.where(questionpaper_id: @questionpaper.id)%>
+    <% entire_question_div = "entire_question_div_" + i.id.to_s%>
+
+	document.getElementById('<%= entire_question_div %>').classList.remove('question_highlight');
+	<% if i.id == @question.id %>
+		document.getElementById('<%= entire_question_div %>').classList.add('question_highlight');
+		sessionStorage.setItem("active_question_id", "<%= i.id %>");
+	<%end%>	
+<%end%>	
+
+// Js for changing the right pane when clicked
+<% for i in Question.where(questionpaper_id: @questionpaper.id)%>
+    <% question_div_link = "question_div_link_" + i.id.to_s%>
+    <% question_div_link_original = "question_div_link_original_" + i.id.to_s%>
+
+	document.getElementById('<%= question_div_link %>').onclick = function() {
+		document.getElementById('<%= question_div_link_original %>').click();
+	}
+<%end%>	

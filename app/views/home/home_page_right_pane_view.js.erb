@@ -1,0 +1,30 @@
+<%if @right_pane_view == 'home'%>
+	document.getElementById('home_page_right_pane_partial_id').innerHTML = "<%= j render 'home/dashboard/dashboard_right_pane_home'%>";
+	document.getElementById('home_page_right_pane_view_link_home').classList.add('question_highlight');
+	document.getElementById('home_page_right_pane_view_link_classes').classList.remove('question_highlight');
+	document.getElementById('home_page_right_pane_view_link_analytics').classList.remove('question_highlight');
+
+	document.getElementById('home_page_right_pane_view_link_home').classList.remove('text-white');
+	document.getElementById('home_page_right_pane_view_link_classes').classList.add('text-white');
+	document.getElementById('home_page_right_pane_view_link_analytics').classList.add('text-white');
+
+<%elsif @right_pane_view == 'classes'%>
+	document.getElementById('home_page_right_pane_partial_id').innerHTML = "<%= j render 'home/dashboard/dashboard_right_pane_classes'%>";
+	document.getElementById('home_page_right_pane_view_link_home').classList.remove('question_highlight');
+	document.getElementById('home_page_right_pane_view_link_classes').classList.add('question_highlight');
+	document.getElementById('home_page_right_pane_view_link_analytics').classList.remove('question_highlight');
+
+	document.getElementById('home_page_right_pane_view_link_home').classList.add('text-white');
+	document.getElementById('home_page_right_pane_view_link_classes').classList.remove('text-white');
+	document.getElementById('home_page_right_pane_view_link_analytics').classList.add('text-white');
+
+<%elsif @right_pane_view == 'analytics'%>
+	document.getElementById('home_page_right_pane_partial_id').innerHTML = "<%= j render 'home/dashboard/dashboard_right_pane_analytics'%>";
+	document.getElementById('home_page_right_pane_view_link_home').classList.remove('question_highlight');
+	document.getElementById('home_page_right_pane_view_link_classes').classList.remove('question_highlight');
+	document.getElementById('home_page_right_pane_view_link_analytics').classList.add('question_highlight');
+
+	document.getElementById('home_page_right_pane_view_link_home').classList.add('text-white');
+	document.getElementById('home_page_right_pane_view_link_classes').classList.add('text-white');
+	document.getElementById('home_page_right_pane_view_link_analytics').classList.remove('text-white');
+<%end%>

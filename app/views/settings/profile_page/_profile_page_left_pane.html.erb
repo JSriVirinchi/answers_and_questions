@@ -1,0 +1,16 @@
+<div class="left_pane glassmorphism_3">
+	<div id="profile_page_left_pane_details_partial_id">
+		<%= render 'settings/profile_page/profile_page_left_pane_details'%>
+	</div>
+		
+	<div  class="divider mb-1">
+	</div>
+
+	<div class="list-group">
+		<%= link_to 'Profile details', settings_profile_page_right_pane_view_path('profile'), class:'list-group-item list-group-item-action question_highlight', id: 'settings_profile_page_right_pane_view_link_profile_details', remote: true%>
+		<%= link_to 'Personal analytics', settings_profile_page_right_pane_view_path('analytics'), class:'text-white list-group-item list-group-item-action', id: 'settings_profile_page_right_pane_view_link_analytics', remote: true%>
+		<%= link_to 'Settings', settings_profile_page_right_pane_view_path('settings'), class:'text-white list-group-item list-group-item-action ', id: 'settings_profile_page_right_pane_view_link_settings', remote: true%>
+	</div>
+
+
+</div>

@@ -1,0 +1,41 @@
+<%= render 'layouts/navbar'%>
+
+<script type="text/javascript">
+	document.getElementById('dashboard_navbar').classList.remove('active');
+	document.getElementById('question_papers_navbar').classList.remove('active');	
+	document.getElementById('profile_navbar').classList.remove('active');	
+</script>
+
+<% question_paper_edit_page_left_pane = 'question_paper_edit_page_left_pane_' + @questionpaper.id.to_s%>
+<% question_paper_edit_page_right_pane = 'question_paper_edit_page_right_pane_' + @questionpaper.id.to_s%>
+
+<% if Question.where(questionpaper_id: @questionpaper.id).first%>
+	<% @question_id = Question.where(questionpaper_id: @questionpaper.id).first.id %>
+<%else%>
+	<% @question_id = 0%>
+<%end%>
+
+<div id= <%= question_paper_edit_page_left_pane %> >
+  <%= render 'home/question_paper/question_paper_edit_page_left_pane'%>
+</div>
+
+<div id= <%= question_paper_edit_page_right_pane%>>
+	<%= render 'home/question_paper/question_paper_edit_page_right_pane', question_id: @question_id %>
+</div>
+
+<style type="text/css">
+	html {
+	  background: url(/assets/background_image.jpg) no-repeat center center fixed;
+	  background-size: cover;
+	  height: 100%;
+	  overflow: hidden;
+	}
+	body{
+		background-color: rgba(0,0,0,0);
+	}
+</style>
+
+<script type="text/javascript">
+	sessionStorage.setItem("active_question_id", "<%= @question_id%>");
+</script>
+

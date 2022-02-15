@@ -1,0 +1,21 @@
+<%if @questionpaper%>
+	<% if @questionpaper.errors.full_messages.any? %>
+		<div class="alert alert-danger mt-2">
+			<% @questionpaper.errors.full_messages.each do |error_message| %>
+				<%= error_message %>
+				<br>
+			<% end %>
+		</div>	  
+	<% end %>
+<% end %>
+
+<%if @question%>
+	<% if @question.errors.full_messages.any? %>
+		<div class="alert alert-danger mt-2">
+			<% @question.errors.full_messages.each do |error_message| %>
+				<%= error_message %> 
+				<br>
+			<% end %>
+		</div>	  
+	<% end %>
+<% end %>

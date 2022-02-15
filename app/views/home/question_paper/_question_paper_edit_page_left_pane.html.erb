@@ -1,0 +1,175 @@
+<% edit_name_before = "edit_name_before_" + @questionpaper.id.to_s %>
+<% edit_name_after = "edit_name_after_" + @questionpaper.id.to_s %>
+<% edit_name_icon = "edit_name_icon_" + @questionpaper.id.to_s %>
+
+<div class="left_pane glassmorphism_3">
+
+    <div class="list-group left_pane_questions">
+      <li class="list-group-item glassmorphism_4 text-white p-2">
+        <div class="row">
+          <div class="col-10" id= <%= edit_name_before %> >
+            <%=truncate(@questionpaper.name, length: 25) %>
+          </div>
+          <div class="col-12 hide" id= <%= edit_name_after%> >
+            <%= form_with scope: :edit_name_question_paper_submit, url: home_edit_name_question_paper_submit_path(@questionpaper.id), method: :put, remote: true do |f|%>
+              <%= f.text_field :name, class: 'form-control', value: @questionpaper.name %>
+            <%end%>
+          </div>
+          <div class="col-2">
+            <%= link_to '<i class="bi bi-pen"></i>'.html_safe, home_edit_name_question_paper_path(@questionpaper.id), class: 'text-white', id: edit_name_icon , remote: true %>
+          </div>
+        </div>      
+      </li>
+
+      <li class="list-group-item glassmorphism_4 text-white p-2">
+        <div class="row">
+          <div class="col-10">
+            <span class="badge bg-primary rounded-pill" style="float: left;">
+              <%= @questionpaper.total_marks %> marks
+            </span>
+          </div>
+          <div class="col-2">
+            <i class="bi bi-gear hover_pointer" data-toggle="modal" data-target="#exampleModal"></i>
+          </div>
+        </div>      
+      </li>
+
+      <!-- Settings icon Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <%= form_with scope: :question_paper_settings, url: home_question_paper_settings_path(@questionpaper.id), method: :post, remote: true do |f|%>
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Question paper settings</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="question_paper_settings_modal_close_button">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                  <div class="row mb-3">
+                    <div class="col-4">
+                      Default marks <span style="color: red"> * </span> :
+                    </div>
+                    <div class="col-8">
+                      <%= f.number_field :default_marks, step: 0.125 , min: 0, class: 'form-control', value: @questionpaper.default_marks %>
+                    </div>
+                  </div>  
+
+
+                  <div id="question_paper_settings_error_messages" >
+                    <%= render 'home/question_paper/error_messages_for_modal'%>
+                  </div> 
+
+              </div>
+
+              <div class="modal-footer">
+                <%= f.submit 'Save changes', class:'btn btn-primary'%>
+              </div>
+            </div>
+          <%end%>
+        </div>
+      </div>
+
+      <!-- question list -->
+
+      <% question_count = 0 %>
+      <% for i in Question.where(questionpaper_id: @questionpaper.id)%>
+        <% question_count = question_count + 1 %>
+        
+        <% question_div_link = "question_div_link_" + i.id.to_s%>
+        <% question_div_link_original = "question_div_link_original_" + i.id.to_s%>
+        <% entire_question_div = "entire_question_div_" + i.id.to_s%>
+        
+        <div class="list-group-item list-group-item-action p-0 for_hover_delete_icon" id= <%= entire_question_div %>>
+          <div class="row">
+            <div class="col-8 hover_pointer p-3" id= <%= question_div_link%>>
+              <%= link_to i.question_number, home_question_question_right_pane_path(i.id), id: question_div_link_original, class: 'question_number_link pl-3', remote: true %>
+            </div>
+            <div class="col-2 pt-3 pb-3 pl-0 pr-0" style="text-align: center;">
+
+
+              <% marks_modal_id_with_sign = "#" + "marks_modal_id_" + i.id.to_s %>
+              <% marks_modal_id_without_sign = "marks_modal_id_" + i.id.to_s %>
+              <% marks_modal_label = "marks_modal_label_" + i.id.to_s %>
+              <% marks_modal_close_id = "marks_modal_close_id_" + i.id.to_s%>
+
+              <!-- Button trigger modal -->
+              <span type= "button" class="badge bg-secondary text-light rounded-pill hover_show" data-toggle="modal" data-target= <%= marks_modal_id_with_sign %>>
+                <%= i.marks%>
+              </span>
+
+              <!-- Modal -->
+              <%= form_with scope: :change_marks_for_question, url: home_change_marks_for_question_path(i.id), method: :post, remote: true do |f|%>
+
+              <div class="modal fade" tabindex="-1" aria-labelledby="<%= marks_modal_label%>" aria-hidden="true" id= <%= marks_modal_id_without_sign %>>
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="<%= marks_modal_label %>">
+                        Marks for question <%= i.question_number %>
+                      </h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="<%= marks_modal_close_id %>">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col-2 pt-1">
+                          Marks
+                        </div>
+                        <div class="col-10">
+                          <%= f.number_field :marks, step: 0.125 , min: 0, class: 'form-control', value: i.marks %>
+                        </div>                        
+                      </div>
+
+                      <br>
+
+                      <div id="change_marks_for_questions_error_messages" >
+                        <%= render 'home/question_paper/error_messages_for_modal'%>
+                      </div>
+
+                      <div style="float: left;">
+                        <ul style="text-align: left;">
+                          <li>Enter only numbers</li>
+                          <li>Decimal increment in 0.125</li>
+                        </ul>
+                      </div>
+                      
+                    </div>
+                    <div class="modal-footer">
+                      <%= f.submit 'Save changes', class: 'btn btn-primary'%>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <%end%> 
+
+            </div>
+
+            <div class="col-1 pt-3 pb-3 pl-0 pr-0">
+              <%= link_to '<i class="bi bi-trash hover_show"></i>'.html_safe, home_delete_question_path(i.id), method: :delete, remote: true, data: { confirm: "Are you sure that you want to delete question #{i.question_number}? "} %>
+            </div>
+          </div>        
+        </div>
+
+        <script type="text/javascript">
+          document.getElementById('<%= question_div_link %>').onclick = function() {
+            document.getElementById('<%= question_div_link_original %>').click();
+          }
+          <%if question_count == 1 %>
+            document.getElementById('<%= entire_question_div %>').classList.add('question_highlight');
+          <%end%>
+        </script>
+      <%end%>
+
+
+
+      <%= link_to 'Add a new question', home_create_question_path(@questionpaper.id), class: "list-group-item list-group-item-action list-group-item-info mb-5", method: :post, remote: true %>
+    </div>
+
+    <div>
+    	<button type="button" class="btn btn-info left_pane_submit_button" >Generate question paper</button>
+    </div>
+
+</div>

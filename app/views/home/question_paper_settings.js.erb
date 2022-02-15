@@ -1,0 +1,5 @@
+<% if @updated == true%>
+	document.getElementById('question_paper_settings_modal_close_button').click();
+<%else%>
+	document.getElementById('question_paper_settings_error_messages').innerHTML = "<%= j render 'home/question_paper/error_messages_for_modal'%>";
+<%end%>

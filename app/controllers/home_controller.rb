@@ -13,7 +13,7 @@ class HomeController < ApplicationController
 		# This is question paper page. The list of question papers can be seen here.
 		# One can create, edit, view, delete papers here.
 		# It is available for teacher role.
-		@number_of_questions_per_page = 7
+		@number_of_questions_per_page = 7 #The number can be changed to view number of questions per page
 		@pagination_questions = Questionpaper.where(user_id: current_user.id).paginate(page: params[:page], per_page: @number_of_questions_per_page)
 	end
 

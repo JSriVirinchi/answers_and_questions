@@ -9,5 +9,4 @@ environment.plugins.prepend('Provide',
     Popper: ['popper.js', 'default'],
   })
 )
-
 module.exports = environment

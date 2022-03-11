@@ -36,7 +36,7 @@
 }
 
 .question_number_link{
-	color: black;	
+	color: white;	
 }
 
 
@@ -94,6 +94,7 @@
 .list-group-item-action{
 	background: rgba( 255, 255, 255, 0.25 );
 	border: 1px solid rgba( 255, 255, 255, 0.18 );
+	color: white;
 }
 
 .list-group-item-action:hover{
@@ -201,4 +202,8 @@
 	background-color: transparent;
 	padding: 5px;
 	margin-left: 20px;
+}
+
+.white_heading{
+	color: white
 }

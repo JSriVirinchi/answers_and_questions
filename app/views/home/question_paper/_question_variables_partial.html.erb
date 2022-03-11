@@ -1,1 +1,11 @@
 <%= question_id%>
+<div class="dropdown" style="margin-left: auto; margin-right: 0;">
+  <button class="btn btn-info dropdown-toggle pl-5 pr-5" type="button" id="Question type" data-toggle="dropdown" aria-expanded="false">
+    Question type
+  </button>
+  <div class="dropdown-menu" aria-labelledby="Question type">
+  	<%= link_to "Descriptive", root_path, class: "dropdown-item active" %> 
+  	<%= link_to "Multiple choice question", root_path, class: "dropdown-item" %> 
+  	<%= link_to "More than one answer", root_path, class: "dropdown-item" %> 
+  </div>
+</div>

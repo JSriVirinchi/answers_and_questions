@@ -204,4 +204,14 @@ class HomeController < ApplicationController
 		    format.js
 	  	end
 	end
+
+	def add_new_option
+		@question = Question.find(params[:question_id])
+
+		Option.create(option: "New option", answer: false, question_id: @question.id)
+
+		respond_to do |format|
+		    format.js
+	  	end
+	end
 end

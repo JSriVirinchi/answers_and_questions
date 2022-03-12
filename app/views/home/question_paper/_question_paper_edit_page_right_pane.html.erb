@@ -2,19 +2,19 @@
 <% question = Question.find(question_id)%>
 	<div class="right_pane glassmorphism_3">
 		<div class="row  question_row m-0">
-			<div class="col-7 box_divider">
+			<div class="col-6 box_divider">
 				<div class="row enter_the_question_row" >
 					<%= form_with scope: :enter_the_question, url: home_enter_the_question_path(question_id), method: :post, class: 'enter_the_question_form' do |f|%>
 							<%if question.question && question.question.length != 0%>	
 								<%= f.text_area :question, class: 'text_area_for_entering_question', onchange: 'this.form.submit()', value: question.question %>
 							<%else%>
 								<%= f.text_area :question, class: 'text_area_for_entering_question', onchange: 'this.form.submit()', placeholder: 'Please type your question here.' %>
-							<%end%>
+							<%end%>							
 							<%= f.submit 'Save', class: 'hide' %>	
 					<%end%>	
 				</div>			
 			</div>
-			<div class="col-5 box_divider pl-3 pr-4 pt-1 pb-1">
+			<div class="col-6 box_divider pl-3 pr-4 pt-1 pb-1">
 				<div class="row variable_boxes">
 					<%= render 'home/question_paper/question_variables_partial', question_id: question_id %>
 				</div>
@@ -22,7 +22,7 @@
 		</div>
 
 		<div class="row m-0 answer_row">
-			<div class="col-7 box_divider">
+			<div class="col-6 box_divider">
 				<div class="row enter_the_question_row" >
 					<%= form_with scope: :enter_the_solution, url: home_enter_the_solution_path(question_id), method: :post, class: 'enter_the_question_form' do |f|%>
 							<%if question.solution && question.solution.length != 0%>	
@@ -34,7 +34,7 @@
 					<%end%>	
 				</div>
 			</div>
-			<div class="col-5 box_divider pl-3 pr-4 pt-1 pb-1">
+			<div class="col-6 box_divider pl-3 pr-4 pt-1 pb-1">
 				<div class="row variable_boxes">
 					<%= render 'home/question_paper/solution_variables_partial', question_id: question_id %>
 				</div>				

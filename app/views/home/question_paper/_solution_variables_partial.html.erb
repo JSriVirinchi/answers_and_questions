@@ -1,1 +1,11 @@
-<%= question_id%>
+<div style="width:100%">
+	<div class="solution_box">
+		Functions for genarlizing solution
+		<%= question_id%>
+	</div>
+	<!-- Options for the question -->
+	<% mcqs_partial_id = 'mcqs_partial_id_' + question_id.to_s%>
+	<div id= <%= mcqs_partial_id %> >
+		<%= render 'home/question_paper/mcqs_partial',question_id: @question_id %>
+	</div>	
+</div>

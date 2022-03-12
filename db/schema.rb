@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_19_070002) do
+ActiveRecord::Schema.define(version: 2022_03_12_104239) do
+
+  create_table "options", force: :cascade do |t|
+    t.text "option"
+    t.boolean "answer"
+    t.integer "question_id"
+  end
 
   create_table "questionpapers", force: :cascade do |t|
     t.string "name"

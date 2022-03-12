@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   post 'home/question/enter_the_question/:question_id', to:'home#enter_the_question', as: 'home_enter_the_question'
   post 'home/solution/enter_the_solution/:question_id', to:'home#enter_the_solution', as: 'home_enter_the_solution'
   post 'home/question/question_paper_settings/:questionpaper_id', to: 'home#question_paper_settings', as: 'home_question_paper_settings'
+  post 'home/solution/add_new_option/:question_id', to: 'home#add_new_option', as: 'home_add_new_option'
 
 
   # settings functions

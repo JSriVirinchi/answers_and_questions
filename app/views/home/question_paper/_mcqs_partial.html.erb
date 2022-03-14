@@ -1,4 +1,4 @@
-<div class="mcq_box">
+<div class="mcq_box" >
 	<div class="row options_for_the_question_header">
 		<bold >Options</bold>
 		Randomize options - checkbox
@@ -15,17 +15,26 @@
 		</div>
 	</div>
 
-	<div style="overflow-y: auto;">
+	<div >
 		<table class="mt-1 table table-bordered table-hover">
 			<tbody>
 				<% for i in Option.where(question_id: question_id)%>
 					<tr>
-						<td style="width:90%;"> <%= i.option %></td>
+						<td style="width:90%;" class="for_hover_delete_icon"> 
+							<div class="row">
+								<div class="col-11">
+									<%= i.option %>
+								</div>
+								<div class="col-1">
+									<%= link_to '<i class="bi bi-x hover_show"></i>'.html_safe, home_delete_option_path(i.id), class: "big-x", method: :delete, remote: true %>
+								</div>
+							</div>						
+						</td>
 						<td><input class="" type="radio" name="exampleRadios"  value="option1" checked></td>
 					</tr>
 				<% end %>
 			</tbody>
 		</table>
-			<%= link_to 'Add new option', home_add_new_option_path(question_id), class: "add_new_option", method: :post, remote: true %>
+		<%= link_to 'Add new option', home_add_new_option_path(question_id), class: "add_new_option", method: :post, remote: true %>
 	</div>		
 </div>	

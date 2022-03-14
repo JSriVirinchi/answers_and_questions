@@ -245,10 +245,10 @@
 .add_new_option{
 	width: 90%;
 	border-radius: 5px 5px 5px 5px !important;
-	background-color: gray;
+	background-color: rgba(100,100,100,0.5);
 	color: white;
-	padding-top: 2%;
-	padding-bottom: 2%;
+	padding-top: 1%;
+	padding-bottom: 1%;
 	padding-left: 35%;
 	padding-right: 35%;
 }
@@ -259,8 +259,12 @@
 	background-color: gray;
 	color: white;
 	text-decoration: none;
-	padding-top: 2%;
-	padding-bottom: 2%;
+	padding-top: 1%;
+	padding-bottom: 1%;
 	padding-left: 35%;
 	padding-right: 35%;
+}
+
+.big-x{
+	font-size: 16px;
 }

@@ -1,0 +1,3 @@
+<% mcqs_partial_id = 'mcqs_partial_id_' + @question_id.to_s%>
+
+document.getElementById('<%= mcqs_partial_id %>').innerHTML = "<%= j render 'home/question_paper/mcqs_partial',question_id: @question_id %>";

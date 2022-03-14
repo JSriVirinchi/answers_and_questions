@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   post 'home/solution/enter_the_solution/:question_id', to:'home#enter_the_solution', as: 'home_enter_the_solution'
   post 'home/question/question_paper_settings/:questionpaper_id', to: 'home#question_paper_settings', as: 'home_question_paper_settings'
   post 'home/solution/add_new_option/:question_id', to: 'home#add_new_option', as: 'home_add_new_option'
-
+  delete 'home/solution/delete_option/:option_id', to: 'home#delete_option', as: 'home_delete_option'
 
   # settings functions
   # profile page

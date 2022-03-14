@@ -214,4 +214,14 @@ class HomeController < ApplicationController
 		    format.js
 	  	end
 	end
+
+	def delete_option
+		@option = Option.find(params[:option_id])
+		@question_id = @option.question_id
+		@option.destroy
+
+		respond_to do |format|
+		    format.js
+	  	end
+	end
 end

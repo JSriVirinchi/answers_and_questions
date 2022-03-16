@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   post 'home/question/question_paper_settings/:questionpaper_id', to: 'home#question_paper_settings', as: 'home_question_paper_settings'
   post 'home/solution/add_new_option/:question_id', to: 'home#add_new_option', as: 'home_add_new_option'
   delete 'home/solution/delete_option/:option_id', to: 'home#delete_option', as: 'home_delete_option'
+  get 'home/solution/edit_mcqs_option/:option_id', to: 'home#edit_mcqs_option', as: 'home_edit_mcqs_option'
+  put 'home/solution/edit_mcqs_option_submit/:option_id', to: 'home#edit_mcqs_option_submit', as: 'home_edit_mcqs_option_submit'
 
   # settings functions
   # profile page

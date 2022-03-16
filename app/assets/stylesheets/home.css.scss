@@ -267,4 +267,25 @@
 
 .big-x{
 	font-size: 16px;
+	margin: 0;
+	padding: 0;
+}
+
+.big-x:hover{
+	font-size: 16px;
+	color: red;
+	margin: 0;
+	padding: 0;
+}
+
+.option_edit_pen{
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+}
+
+.option_padding{
+	padding-left: 5%;
+	padding-top: 1%;
+	padding-bottom: 1%;
 }

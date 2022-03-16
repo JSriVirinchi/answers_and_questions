@@ -42,8 +42,9 @@ class HomeController < ApplicationController
 		# One can delete question papers
 		@questionpaper = Questionpaper.find(params[:questionpaper_id])
 		@questionpaper.destroy
-		@pagination_questions = Questionpaper.all
-		@number_of_questions_per_page = 7
+		@number_of_questions_per_page = 7 #The number can be changed to view number of questions per page
+		@pagination_questions = Questionpaper.where(user_id: current_user.id)
+		
 		respond_to do |format|
 		    format.js
 	  	end
@@ -76,6 +77,7 @@ class HomeController < ApplicationController
 		question_number = Question.where(questionpaper_id: @questionpaper.id).count + 1
 		default_marks = @questionpaper.default_marks
 		@question = Question.create(questionpaper_id: @questionpaper.id, question_number: question_number, marks: default_marks)
+		@question_id = @question.id
 
 		number_of_questions = @questionpaper.number_of_questions
 		number_of_questions = number_of_questions + 1
@@ -101,6 +103,7 @@ class HomeController < ApplicationController
 
 		@question = Question.find(params[:question_id])
 		@questionpaper = Questionpaper.find(@question.questionpaper_id)
+		@question_id = @question.id
 
 		# fixing the continuous question number
 		deleting_question_number = @question.question_number
@@ -138,6 +141,7 @@ class HomeController < ApplicationController
 		# This changes the right pane view based on the question selected
 		@question = Question.find(params[:question_id])
 		@questionpaper = Questionpaper.find(@question.questionpaper_id)
+		@question_id = @question.id
 
 		respond_to do |format|
 		    format.js
@@ -150,6 +154,7 @@ class HomeController < ApplicationController
 
 		@question = Question.find(params[:question_id])
 		@questionpaper = Questionpaper.find(@question.questionpaper_id)
+		@question_id = @question.id
 		if @question.update(params.require(:change_marks_for_question).permit(:marks))
 			@updated = true
 
@@ -206,8 +211,9 @@ class HomeController < ApplicationController
 	end
 
 	def add_new_option
+		# Add a new option to the mcqs
 		@question = Question.find(params[:question_id])
-
+		@question_id = @question.id
 		Option.create(option: "New option", answer: false, question_id: @question.id)
 
 		respond_to do |format|
@@ -216,9 +222,31 @@ class HomeController < ApplicationController
 	end
 
 	def delete_option
+		# Delete the selected option in the mcqs
 		@option = Option.find(params[:option_id])
 		@question_id = @option.question_id
 		@option.destroy
+
+		respond_to do |format|
+		    format.js
+	  	end
+	end
+
+	def edit_mcqs_option
+		# Edit the content of the mcqs - getting the text field
+		@option = Option.find(params[:option_id])
+		@question_id = @option.question_id
+
+		respond_to do |format|
+		    format.js
+	  	end
+	end
+
+	def edit_mcqs_option_submit
+		# Submitting the edited mcq option - and closing the text field
+		@option = Option.find(params[:option_id])
+		@question_id = @option.question_id
+		@option.update(params.require(:edit_mcqs_option_submit).permit(:option))
 
 		respond_to do |format|
 		    format.js

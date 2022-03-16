@@ -1,0 +1,8 @@
+
+<% edit_mcqs_option_before = "edit_mcqs_option_before_" + @option.id.to_s %>
+<% edit_mcqs_option_after = "edit_mcqs_option_after_" + @option.id.to_s %>
+<% edit_mcqs_option_icons = "edit_mcqs_option_icons_" + @option.id.to_s %>
+
+document.getElementById('<%= edit_mcqs_option_before %>').classList.add('hide');
+document.getElementById('<%= edit_mcqs_option_after %>').classList.remove('hide');
+document.getElementById('<%= edit_mcqs_option_icons %>').classList.add('hide');
